@@ -120,16 +120,28 @@ public class RobotMap {
         if(controller == Controller.DRIVE){
             if(driver == Driver.ADAMT){
                 _currentDriver = Driver.ADAMT;
+                changeSpeed = 8; deliverPayload = 1; deployCollector = 2; retractCollector = 3; climb = 5; driveMode = 6;
+                closeGripper = 2; recieveBall = 3; recieveHatch = 4; elevatorLevel1 = 11; elevatorLevel2 = 9; 
+                elevatorLevel3 = 7;elevatorHumanRecieve = 10;
             }
             if(driver == Driver.JUSTIND){
                 _currentDriver = Driver.JUSTIND;
+                changeSpeed = 8; deliverPayload = 1; deployCollector = 2; retractCollector = 3; climb = 5; driveMode = 6;
+                closeGripper = 2; recieveBall = 3; recieveHatch = 4; elevatorLevel1 = 11; elevatorLevel2 = 9; 
+                elevatorLevel3 = 7;elevatorHumanRecieve = 10;
             }
         }else{
             if(driver == Driver.ADAMT){
                 _currentDriver = Driver.ADAMT;
+                changeSpeed = 8; deliverPayload = 1; deployCollector = 2; retractCollector = 3; climb = 5; driveMode = 6;
+                closeGripper = 2; recieveBall = 3; recieveHatch = 4; elevatorLevel1 = 11; elevatorLevel2 = 9; 
+                elevatorLevel3 = 7;elevatorHumanRecieve = 10;
             }
             if(driver == Driver.JUSTIND){
                 _currentDriver = Driver.JUSTIND;
+                changeSpeed = 8; deliverPayload = 1; deployCollector = 2; retractCollector = 3; climb = 5; driveMode = 6;
+                closeGripper = 2; recieveBall = 3; recieveHatch = 4; elevatorLevel1 = 11; elevatorLevel2 = 9; 
+                elevatorLevel3 = 7;elevatorHumanRecieve = 10;
             }
         }
     }

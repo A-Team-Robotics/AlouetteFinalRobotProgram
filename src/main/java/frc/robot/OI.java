@@ -42,7 +42,7 @@ public class OI {
   public OI(){
     speed.whenPressed(new SpeedControl());
     recieveBall.whenPressed(new BallReady());
-    recieveHatch.whenPressed(new LoadHatch());
+    recieveHatch.whenPressed(new HatchReady());
     closeGripper.whenPressed(new CloseGripper());
     climb.whenPressed(new Climb());
     elevatorBase.whenPressed(new ElevatorPosition(RobotMap.elevatorPos1));
