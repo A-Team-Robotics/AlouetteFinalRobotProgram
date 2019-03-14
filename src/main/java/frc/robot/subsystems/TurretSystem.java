@@ -57,6 +57,8 @@ public class TurretSystem extends Subsystem {
  * Stop the Turret Motor
  */
   public void stopTurretMotor(){
+      _turretMotor.set(ControlMode.Disabled, 0.0);
+      _turretMotor.stopMotor();
       _turretMotor.disable();
   }
 

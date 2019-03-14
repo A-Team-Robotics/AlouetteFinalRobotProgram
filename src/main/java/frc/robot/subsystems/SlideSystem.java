@@ -33,7 +33,8 @@ public class SlideSystem extends Subsystem {
   }
 
   public void stopMotor(){
-    slideMotor.set(0);
+    slideMotor.set(ControlMode.Disabled, 0.0);
+    slideMotor.stopMotor();
   }
 
   public void moveFront(){

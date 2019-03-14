@@ -56,6 +56,7 @@ public class ElevatorSystem extends Subsystem{
     * Stop the Elevator Motor
     */
     public void stopElevatormotor(){
+        _elevatorDriveMotor.set(ControlMode.Disabled, 0.0);
         _elevatorDriveMotor.stopMotor();
     }
 

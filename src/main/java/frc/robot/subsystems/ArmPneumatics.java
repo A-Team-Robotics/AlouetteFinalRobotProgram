@@ -37,7 +37,6 @@ public class ArmPneumatics extends Subsystem{
         return buttonStop.get();
     }
 
-    
     public void log() {
         SmartDashboard.putBoolean("Arm Button", getBallStopButton());
     }
