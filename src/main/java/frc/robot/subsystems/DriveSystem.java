@@ -17,9 +17,7 @@ import frc.robot.RobotMap;
 import frc.robot.commands.XboxDrive;
 
 public class DriveSystem extends Subsystem {
-
-    public static int driveSpeed = 1;
-    public static int CM_CONVERSION = 360;
+    
 
     private WPI_TalonSRX _backRightCIM = new WPI_TalonSRX(RobotMap.BACK_RIGHT_MOTOR);// Change to constant later
     private WPI_TalonSRX _frontRightCIM = new WPI_TalonSRX(RobotMap.FRONT_RIGHT_MOTOR);// Change to constant later
@@ -73,7 +71,7 @@ public class DriveSystem extends Subsystem {
    * @param driveController joystick controller object to get axis value from
    */
     public void arcadeDrive(Joystick driveController){
-        _driveBase.arcadeDrive((driveController.getRawAxis(1))/driveSpeed, (driveController.getRawAxis(4))/driveSpeed, true);
+        _driveBase.arcadeDrive((driveController.getRawAxis(1))/RobotMap.driveSpeed, (driveController.getRawAxis(4))/RobotMap.driveSpeed, true);
     }
 
      /**
@@ -172,7 +170,7 @@ public class DriveSystem extends Subsystem {
     }
 
     public int getDistance(){
-        return ((-_backLeftCIM.getSelectedSensorPosition()+_backRightCIM.getSelectedSensorPosition())/2)/CM_CONVERSION;
+        return ((-_backLeftCIM.getSelectedSensorPosition()+_backRightCIM.getSelectedSensorPosition())/2)/RobotMap.CM_CONVERSION;
     }
 
     @Override

@@ -9,7 +9,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.InstantCommand;
 import frc.robot.Robot;
-import frc.robot.subsystems.DriveSystem;
+import frc.robot.RobotMap;
 
 /**
  * An example command.  You can replace me with your own command.
@@ -25,15 +25,15 @@ public class SpeedControl extends InstantCommand {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    if(DriveSystem.driveSpeed==1){
+    if(RobotMap.driveSpeed==1){
       speed = 2;
-      DriveSystem.driveSpeed = speed;
-    }else if(DriveSystem.driveSpeed == 2){
+      RobotMap.driveSpeed = speed;
+    }else if(RobotMap.driveSpeed == 2){
       speed = 3;
-      DriveSystem.driveSpeed = speed;
+      RobotMap.driveSpeed = speed;
     }else {
       speed = 1;
-      DriveSystem.driveSpeed = speed;
+      RobotMap.driveSpeed = speed;
     }
     
   }

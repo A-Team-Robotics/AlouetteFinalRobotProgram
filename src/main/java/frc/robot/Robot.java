@@ -140,14 +140,14 @@ public class Robot extends TimedRobot {
       int currentPos = Robot.turret.getPosition();
       RobotMap.turretMin = currentPos;
       RobotMap.turretMax = currentPos+7610;
-      Robot.turret.setTurretPos(500);
+      Robot.turret.setTurretPos(currentPos+500);
       Scheduler.getInstance().add(new MoveTurret());
      }
      if(Robot.turret.getRightLimitSwitch()==false){
        int currentPos = Robot.turret.getPosition();
        RobotMap.turretMin = currentPos-7610;
        RobotMap.turretMax = currentPos;
-       Robot.turret.setTurretPos(500);
+       Robot.turret.setTurretPos(currentPos-500);
        Scheduler.getInstance().add(new MoveTurret());
       }
       elevatorSystem.log();

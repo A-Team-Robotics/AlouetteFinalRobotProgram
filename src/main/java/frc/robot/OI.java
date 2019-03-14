@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commandGroups.BallReady;
 import frc.robot.commandGroups.Climb;
 import frc.robot.commandGroups.CollectBall;
+import frc.robot.commandGroups.HatchReady;
 import frc.robot.commandGroups.RetractCollector;
 import frc.robot.commands.*;
 

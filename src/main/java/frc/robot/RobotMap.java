@@ -53,6 +53,7 @@ public class RobotMap {
 
     //Motor Speeds
     public static double rollersSpeed = 0.4, slideSpeed = 1.0, ballGripperSpeed = 1.0;
+    public static int driveSpeed = 1;
 
     //Encoder and Potentiometer Values System Positions
     public static int elevatorPos1 = 2, elevatorHatch2 = 41948, elevatorHumanPos = 32000,
@@ -65,6 +66,9 @@ public class RobotMap {
     //Ball Collector Retract Positions
 
     //Ball Collector Transfer Positions
+
+    //Other
+    public static int CM_CONVERSION = 360;
 
     //Non-Drive Controller - 3D Joystick Logitech
     public static int elevatorTop = 8, elevatorBottom = 12, elevatorMiddle = 10, deployIntake = 9, turretLeft = 5, 
