@@ -56,7 +56,7 @@ public class RobotMap {
 
     //Encoder and Potentiometer Values System Positions
     public static int elevatorPos1 = 2, elevatorHatch2 = 41948, elevatorHumanPos = 32000,
-    elevatorPos2 = 41948, elevatorPos3 = 90000,turretMax = 20000, turretMin = 100;
+    elevatorPos2 = 41948, elevatorPos3 = 90000,turretMax = 20000, turretMin = 100, arm1Max = 622, arm1Min=208;
 
     //BallCollector Deploy Positions 
     public static int elevatorLoadPos1 = 18000;
