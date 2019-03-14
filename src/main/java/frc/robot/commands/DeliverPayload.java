@@ -25,6 +25,5 @@ public class DeliverPayload extends InstantCommand{
             SmartDashboard.putBoolean("Upper Gripper", false);
             SmartDashboard.putBoolean("Lower Gripper", true);
         }
-        
     }
 }
