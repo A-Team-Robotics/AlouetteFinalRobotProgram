@@ -1,6 +1,7 @@
-package frc.robot.commands;
+package frc.robot.commandGroups;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import frc.robot.commands.*;
 
 public class TransferBall extends CommandGroup{
     public TransferBall(){

@@ -10,6 +10,10 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commandGroups.BallReady;
+import frc.robot.commandGroups.Climb;
+import frc.robot.commandGroups.CollectBall;
+import frc.robot.commandGroups.RetractCollector;
 import frc.robot.commands.*;
 
 /**
