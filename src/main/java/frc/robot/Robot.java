@@ -96,6 +96,12 @@ public class Robot extends TimedRobot {
   @Override
   public void disabledInit() {
     led.set(false);
+    turret.stopTurretMotor();
+    elevatorSystem.stopElevatormotor();
+    slideSystem.stopMotor();
+    gripperSystem.stopMotor();
+    ballCollector.stopMotor();
+    ballCollectorArm2.stopMotor();
   }
 
   @Override

@@ -32,6 +32,10 @@ public class BallCollectorArm2 extends Subsystem {
         _armTwoMotor.setInverted(InvertType.None);
    }
 
+   public void stopMotor(){
+       _armTwoMotor.set(ControlMode.Disabled,0.0);
+       _armTwoMotor.stopMotor();
+   }
     
     public void log() {
         SmartDashboard.putNumber("Ball Collector Arm Two",_armTwoMotor.getSelectedSensorPosition());

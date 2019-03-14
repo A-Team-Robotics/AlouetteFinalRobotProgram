@@ -45,4 +45,9 @@ public class BallCollectorSystem extends Subsystem{
         setDefaultCommand(null);
     }
 
+    public void stopMotor(){
+        _armOneMotor.stopMotor();
+        _armOneMotor.set(ControlMode.Disabled, 0.0);
+    }
+
 }
