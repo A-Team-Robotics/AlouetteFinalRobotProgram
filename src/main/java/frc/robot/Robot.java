@@ -73,6 +73,7 @@ public class Robot extends TimedRobot {
     turret.init();
     elevatorSystem.init();
     m_oi = new OI();
+    RobotMap.arm1Max=ballCollectorArm2.getMotorTwoPos();
   }
 
   /**

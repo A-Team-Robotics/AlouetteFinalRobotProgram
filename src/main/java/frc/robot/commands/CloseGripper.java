@@ -13,7 +13,7 @@ public class CloseGripper extends InstantCommand{
     protected void execute() {
         Robot.gripperSystem.closeUpperGripper();
         Robot.gripperSystem.closelowerGripper();
-        Robot.gripperSystem.setGripperMotor(0.0);
+        Robot.gripperSystem.stopMotor();
         SmartDashboard.putBoolean("Upper Gripper", false);
         SmartDashboard.putBoolean("Lower Gripper", false);
     }

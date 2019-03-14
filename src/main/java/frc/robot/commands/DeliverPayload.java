@@ -21,7 +21,7 @@ public class DeliverPayload extends InstantCommand{
         }else if(Robot.gripperState==false){
             Robot.gripperSystem.closeUpperGripper();
             Robot.gripperSystem.openLowerGripper();
-            Robot.gripperSystem.setGripperMotor(0.0);
+            Robot.gripperSystem.stopMotor();
             SmartDashboard.putBoolean("Upper Gripper", false);
             SmartDashboard.putBoolean("Lower Gripper", true);
         }
