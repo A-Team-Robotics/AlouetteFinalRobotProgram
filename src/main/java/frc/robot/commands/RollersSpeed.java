@@ -9,17 +9,18 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.InstantCommand;
 import frc.robot.Robot;
+import frc.robot.RobotMap.RollerSpeed;
 
 /**
  * An example command.  You can replace me with your own command.
  */
 public class RollersSpeed extends InstantCommand {
 
-  int state = 1;
+    RollerSpeed state = RollerSpeed.STOP;
   /**
  * 1 is forward 2 is reverse 3 is stop
  */
-  public RollersSpeed(int state) {
+  public RollersSpeed(RollerSpeed state) {
       this.state=state;
     requires(Robot.arm);
   }
@@ -27,13 +28,13 @@ public class RollersSpeed extends InstantCommand {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-      if(state==3){
+      if(state == RollerSpeed.STOP) {
           Robot.arm.stopRollers();
       }
-      if(state==2){
+      if(state == RollerSpeed.FORWARD){
           Robot.arm.setRollersReverse();
       }
-      if(state==1){
+      if(state == RollerSpeed.REVERSE){
           Robot.arm.setRollersForward();
       }
   }

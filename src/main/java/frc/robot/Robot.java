@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap.Driver;
+import frc.robot.RobotMap.Payload;
 import frc.robot.commands.MoveTurret;
 import frc.robot.subsystems.ArmPneumatics;
 import frc.robot.subsystems.BallCollectorArm2;
@@ -42,7 +43,9 @@ public class Robot extends TimedRobot {
   public static DriveSystem drive = new DriveSystem();
   public static TurretSystem turret = new TurretSystem();
   public static OI m_oi;
-  public static boolean gripperState = false;//true deliver ball false deliver hatch
+
+  public static Payload _payloadState = Payload.NULL;
+
 
   Compressor comp = new Compressor(RobotMap.COMPRESSOR);
   Solenoid led = new Solenoid(RobotMap.LED_RING_ONE);

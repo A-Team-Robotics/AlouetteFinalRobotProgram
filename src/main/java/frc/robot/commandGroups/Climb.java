@@ -2,6 +2,7 @@ package frc.robot.commandGroups;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.RobotMap;
+import frc.robot.RobotMap.RollerSpeed;
 import frc.robot.commands.*;
 
 public class Climb extends CommandGroup{
@@ -17,6 +18,6 @@ public class Climb extends CommandGroup{
        addSequential(new WaitElevatorPosition(RobotMap.elevatorPos1, false));
        //
        addParallel(new WaitArm1Position(29800, true));
-       addParallel(new RollersSpeed(1));
+       addParallel(new RollersSpeed(RollerSpeed.STOP));
     }
 }

@@ -153,6 +153,27 @@ public class RobotMap {
     public static Driver getCurrentDrive() {
         return _currentDriver;
     }
+
+    //State Enumerations
+    /**
+   * Payload Name enum
+   * Select which drivers controls to change
+   */
+    public enum Payload{
+        HATCH,
+        BALL,
+        NULL,
+    }
+
+     /**
+   * RollerSpeed Name enum
+   * Select which drivers controls to change
+   */
+    public enum RollerSpeed{
+        FORWARD,
+        REVERSE,
+        STOP,
+    }
 }
 /*
  * XBOX BUTTON MAPPING FOR DRIVER STATION AS FOLLOWS
