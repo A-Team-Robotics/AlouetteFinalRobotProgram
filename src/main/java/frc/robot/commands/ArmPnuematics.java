@@ -9,29 +9,29 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.InstantCommand;
 import frc.robot.Robot;
+import frc.robot.RobotMap.PnuematicArm;
 
 /**
  * An example command.  You can replace me with your own command.
  */
 public class ArmPnuematics extends InstantCommand {
 
-  int state = 1;
-  /**
- * 1 is open 2 is closed
- */
-  public ArmPnuematics(int state) {
-      this.state=state;
+  PnuematicArm a = PnuematicArm.CLOSE;
+  public ArmPnuematics(PnuematicArm a) {
+      this.a=a;
     requires(Robot.arm);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-      if(state==2){
-          Robot.arm.closeArms();
-      }
-      if(state==1){
-          Robot.arm.openArms();
-      }
+    switch(a){
+      case CLOSE:
+      Robot.arm.closeArms();
+      break;
+      case OPEN:
+      Robot.arm.openArms();
+      break;
+    }
   }
 }

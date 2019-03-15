@@ -28,14 +28,16 @@ public class RollersSpeed extends InstantCommand {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-      if(state == RollerSpeed.STOP) {
+      switch(state){
+          case STOP:
           Robot.arm.stopRollers();
-      }
-      if(state == RollerSpeed.FORWARD){
+          break;
+          case FORWARD:
           Robot.arm.setRollersReverse();
-      }
-      if(state == RollerSpeed.REVERSE){
+          break;
+          case REVERSE:
           Robot.arm.setRollersForward();
+          break;
       }
   }
 }

@@ -57,10 +57,11 @@ public class RobotMap {
 
     //Encoder and Potentiometer Values System Positions
     public static int elevatorPos1 = 2, elevatorHatch2 = 41948, elevatorHumanPos = 32000,
-    elevatorPos2 = 41948, elevatorPos3 = 90000, turretMax = 20000, turretMin = 100, arm1Max = 622, arm1Min=208;
+    elevatorPos2 = 41948, elevatorPos3 = 90000, turretMax = 7610, turretMin = 1, 
+    arm2Max = 622, arm2Min=208, arm1Max= 60000;
 
+    public static final int elevatorClearGripper = 18000;
     //BallCollector Deploy Positions 
-    public static int elevatorLoadPos1 = 18000;
     public static int arm2Pos1 = 219, arm1Pos1 = 29800;
 
     //Ball Collector Retract Positions
@@ -156,7 +157,7 @@ public class RobotMap {
 
     //State Enumerations
     /**
-   * Payload Name enum
+   * Payload enum
    * Select which drivers controls to change
    */
     public enum Payload{
@@ -166,7 +167,7 @@ public class RobotMap {
     }
 
      /**
-   * RollerSpeed Name enum
+   * RollerSpeed enum
    * Select which drivers controls to change
    */
     public enum RollerSpeed{
@@ -174,6 +175,14 @@ public class RobotMap {
         REVERSE,
         STOP,
     }
+    /**
+   * Pnuematics enum
+   * Select which drivers controls to change
+   */
+  public enum PnuematicArm{
+    OPEN,
+    CLOSE,
+}
 }
 /*
  * XBOX BUTTON MAPPING FOR DRIVER STATION AS FOLLOWS
