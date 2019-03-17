@@ -151,17 +151,14 @@ public class Robot extends TimedRobot {
     if(Robot.turret.getLeftLimitSwitch()==false){
       Robot.turret.resetEncoderLeft();
       Robot.turret.setTurretPos(200);
-      //TODO Turret set positions switch 0,45,90...
       RobotMap.turretMax = 0;
       RobotMap.turretMin = 7600;
-      Scheduler.getInstance().add(new MoveTurret());
      }
      if(Robot.turret.getRightLimitSwitch()==false){
       Robot.turret.resetEncoderRight();
       Robot.turret.setTurretPos(200);
       RobotMap.turretMax = 7600;
       RobotMap.turretMin = 0;
-      Scheduler.getInstance().add(new MoveTurret());
      }
       elevatorSystem.log();
   }

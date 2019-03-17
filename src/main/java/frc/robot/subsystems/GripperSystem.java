@@ -8,7 +8,9 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -28,7 +30,7 @@ public class GripperSystem extends Subsystem {
 
   private DigitalInput buttonBallStop = new DigitalInput(RobotMap.GRIPPER_BUTTON_STOP);
 
-  private VictorSPX gripperMotor = new VictorSPX(RobotMap.GRIPPER_MOTOR);
+  private WPI_TalonSRX gripperMotor = new WPI_TalonSRX(RobotMap.GRIPPER_MOTOR);
   
 
   @Override

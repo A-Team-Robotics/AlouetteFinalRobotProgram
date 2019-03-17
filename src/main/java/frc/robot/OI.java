@@ -10,17 +10,10 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.buttons.POVButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.commandGroups.BallReady;
-import frc.robot.commandGroups.Climb;
-import frc.robot.commandGroups.CollectBall;
-import frc.robot.commandGroups.DeliverCargo;
-import frc.robot.commandGroups.HatchLoad;
-import frc.robot.commandGroups.HatchReady;
-import frc.robot.commandGroups.RetractCollector;
-import frc.robot.commandGroups.DeliverCargo.side;
+import frc.robot.commandGroups.*;
 import frc.robot.commands.*;
-import frc.robot.triggers.PovButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -49,12 +42,12 @@ public class OI {
   Button elevatorLevel2 = new JoystickButton(joystickController, RobotMap.elevatorLevel2);
   Button elevatorLevel3 = new JoystickButton(joystickController, RobotMap.elevatorLevel3);
   Button elevatorHumanRecieve = new JoystickButton(joystickController, RobotMap.elevatorHumanRecieve);
-  PovButton turret0 = new PovButton(joystickController, 0);
-  PovButton turret45 = new PovButton(joystickController, 45);
-  PovButton turret90 = new PovButton(joystickController, 90);
-  PovButton turret135 = new PovButton(joystickController, 135);
-  PovButton turret180 = new PovButton(joystickController, 180);
-  PovButton turret270 = new PovButton(joystickController, 270);
+  POVButton turret0 = new POVButton(joystickController, 0);
+  POVButton turret45 = new POVButton(joystickController, 45);
+  POVButton turret90 = new POVButton(joystickController, 90);
+  POVButton turret135 = new POVButton(joystickController, 135);
+  POVButton turret180 = new POVButton(joystickController, 180);
+  POVButton turret270 = new POVButton(joystickController, 270);
     
   public OI(){
     slideBack.whenPressed(new SlideBack());
@@ -89,15 +82,15 @@ public class OI {
     //
     retractBallCollector.whenPressed(new RetractCollector());
     //
-    turret0.whenActive(new TurretPosition(RobotMap.turret0));
-    turret45.whenActive(new TurretPosition(RobotMap.turret45));
-    turret90.whenActive(new TurretPosition(RobotMap.turret90));
-    turret135.whenActive(new TurretPosition(RobotMap.turret135));
-    turret180.whenActive(new TurretPosition(RobotMap.turret180));
-    turret270.whenActive(new MoveTurret());
-    //
-    SmartDashboard.putData("Deliver Cargo Left", new DeliverCargo(side.LEFT));
-    SmartDashboard.putData("Deliver Cargo Right", new DeliverCargo(side.RIGHT));
-    SmartDashboard.putData("Seq Load Hatch", new HatchLoad());
+    // turret0.whenActive(new TurretPosition(RobotMap.turret0));
+    // turret45.whenActive(new TurretPosition(RobotMap.turret45));
+    // turret90.whenActive(new TurretPosition(RobotMap.turret90));
+    // turret135.whenActive(new TurretPosition(RobotMap.turret135));
+    // turret180.whenActive(new TurretPosition(RobotMap.turret180));
+    // turret270.whenActive(new MoveTurret());
+    // //
+    // SmartDashboard.putData("Deliver Cargo Left", new DeliverCargo(side.LEFT));
+    // SmartDashboard.putData("Deliver Cargo Right", new DeliverCargo(side.RIGHT));
+    // SmartDashboard.putData("Seq Load Hatch", new HatchLoad());
   }
 }
