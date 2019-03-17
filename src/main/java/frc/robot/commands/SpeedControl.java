@@ -16,8 +16,7 @@ import frc.robot.RobotMap;
  */
 public class SpeedControl extends InstantCommand {
 
-  int speed = 1;
-  int lastSpeed = 1;
+  double speed = 1;
   public SpeedControl() {
     requires(Robot.drive);
   }
@@ -26,10 +25,10 @@ public class SpeedControl extends InstantCommand {
   @Override
   protected void initialize() {
     if(RobotMap.driveSpeed==1){
-      speed = 2;
+      speed = 1.4;
       RobotMap.driveSpeed = speed;
-    }else if(RobotMap.driveSpeed == 2){
-      speed = 3;
+    }else if(RobotMap.driveSpeed == 1.4){
+      speed = 2;
       RobotMap.driveSpeed = speed;
     }else {
       speed = 1;

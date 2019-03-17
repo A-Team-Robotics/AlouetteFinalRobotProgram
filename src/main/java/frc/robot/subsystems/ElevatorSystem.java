@@ -23,8 +23,6 @@ public class ElevatorSystem extends Subsystem{
         }
         return _elavatorInstance;
     }
-
-    
     
     public void init() {
         _elevatorDriveMotor.setSensorPhase(true);
@@ -55,7 +53,7 @@ public class ElevatorSystem extends Subsystem{
     /**
     * Stop the Elevator Motor
     */
-    public void stopElevatormotor(){
+    public void stopMotor(){
         _elevatorDriveMotor.set(ControlMode.Disabled, 0.0);
         _elevatorDriveMotor.stopMotor();
     }

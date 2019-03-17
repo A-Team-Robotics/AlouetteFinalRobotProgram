@@ -14,7 +14,7 @@ public class MoveTurret extends Command {
     protected void execute() {
         Robot.turret.setTurretPos((int)TurretSystem.map(OI.joystickController.getThrottle(), -1, 1, 200, 7500));//200, 7500
         if(Robot.turret.getLeftLimitSwitch()==false||Robot.turret.getRightLimitSwitch()==false){
-            Robot.turret.stopTurretMotor();
+            Robot.turret.stopMotor();
         }
     }
     @Override
@@ -31,9 +31,30 @@ public class MoveTurret extends Command {
         end();
     }
 
-    @Override
-    protected void end() {
-        
-    }
+    // public MoveTurret(){
+    //     requires(Robot.turret);
+    // }
+    // @Override
+    // protected void execute() {
+    //     if(Robot.turret.getLeftLimitSwitch()==false&&Robot.turret.getRightLimitSwitch()==true){
+    //         Robot.turret.setTurretPos((int)TurretSystem.map(OI.joystickController.getThrottle(), -1, 1, 200, 7500));//200, 7500
+    //     }else{
+    //         Robot.turret.setTurretPos((int)TurretSystem.map(OI.joystickController.getThrottle(), -1, 1, 200, 7500));//200, 7500
+    //     }
+    // }
+    // @Override
+    // protected boolean isFinished() {
+    //     return false;
+    // }
+
+    // @Override
+    // protected void interrupted() {
+    //     end();
+    // }
+
+    // @Override
+    // protected void end() {
+    //     Robot.turret.stopMotor();
+    // }
 
 }

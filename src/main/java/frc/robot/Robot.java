@@ -101,8 +101,8 @@ public class Robot extends TimedRobot {
   @Override
   public void disabledInit() {
     led.set(false);
-    turret.stopTurretMotor();
-    elevatorSystem.stopElevatormotor();
+    turret.stopMotor();
+    elevatorSystem.stopMotor();
     slideSystem.stopMotor();
     gripperSystem.stopMotor();
     ballCollector.stopMotor();
@@ -149,19 +149,20 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
     if(Robot.turret.getLeftLimitSwitch()==false){
-      int currentPos = Robot.turret.getPosition();
-      RobotMap.turretMin = currentPos;
-      RobotMap.turretMax = currentPos+7610;
-      Robot.turret.setTurretPos(currentPos+500);
+      Robot.turret.resetEncoderLeft();
+      Robot.turret.setTurretPos(200);
+      //TODO Add positions for when the turret zero position is fliped so TurretPosition will work right
+      RobotMap.turretMax = 0;
+      RobotMap.turretMin = 7600;
       Scheduler.getInstance().add(new MoveTurret());
      }
      if(Robot.turret.getRightLimitSwitch()==false){
-       int currentPos = Robot.turret.getPosition();
-       RobotMap.turretMin = currentPos-7610;
-       RobotMap.turretMax = currentPos;
-       Robot.turret.setTurretPos(currentPos-500);
-       Scheduler.getInstance().add(new MoveTurret());
-      }
+      Robot.turret.resetEncoderRight();
+      Robot.turret.setTurretPos(200);
+      RobotMap.turretMax = 7600;
+      RobotMap.turretMin = 0;
+      Scheduler.getInstance().add(new MoveTurret());
+     }
       elevatorSystem.log();
   }
 
@@ -171,4 +172,19 @@ public class Robot extends TimedRobot {
   @Override
   public void testPeriodic() {
   }
+
+  // if(Robot.turret.getLeftLimitSwitch()==false){
+  //   int currentPos = Robot.turret.getPosition();
+  //   RobotMap.turretMin = currentPos;
+  //   RobotMap.turretMax = currentPos+7610;
+  //   Robot.turret.setTurretPos(currentPos+500);
+  //   Scheduler.getInstance().add(new MoveTurret());
+  //  }
+  //  if(Robot.turret.getRightLimitSwitch()==false){
+  //    int currentPos = Robot.turret.getPosition();
+  //    RobotMap.turretMin = currentPos-7610;
+  //    RobotMap.turretMax = currentPos;
+  //    Robot.turret.setTurretPos(currentPos-500);
+  //    Scheduler.getInstance().add(new MoveTurret());
+  //   }
 }

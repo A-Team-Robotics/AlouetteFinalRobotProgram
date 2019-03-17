@@ -10,11 +10,15 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commandGroups.BallReady;
 import frc.robot.commandGroups.Climb;
 import frc.robot.commandGroups.CollectBall;
+import frc.robot.commandGroups.DeliverCargo;
+import frc.robot.commandGroups.HatchLoad;
 import frc.robot.commandGroups.HatchReady;
 import frc.robot.commandGroups.RetractCollector;
+import frc.robot.commandGroups.DeliverCargo.side;
 import frc.robot.commands.*;
 import frc.robot.triggers.PovButton;
 
@@ -68,11 +72,14 @@ public class OI {
     elevatorHumanRecieve.whenPressed(new ElevatorPosition(RobotMap.elevatorHumanLoad));
     deployBallCollector.whenPressed(new CollectBall());
     retractBallCollector.whenPressed(new RetractCollector());
-    turret0.whenActive(new TurretPosition(0));
-    turret45.whenActive(new TurretPosition(45));
-    turret90.whenActive(new TurretPosition(90));
-    turret135.whenActive(new TurretPosition(135));
-    turret180.whenActive(new TurretPosition(180));
+    turret0.whenActive(new TurretPosition(RobotMap.turret0));
+    turret45.whenActive(new TurretPosition(RobotMap.turret45));
+    turret90.whenActive(new TurretPosition(RobotMap.turret90));
+    turret135.whenActive(new TurretPosition(RobotMap.turret135));
+    turret180.whenActive(new TurretPosition(RobotMap.turret180));
     turret270.whenActive(new MoveTurret());
+    SmartDashboard.putData("Deliver Cargo Left", new DeliverCargo(side.LEFT));
+    SmartDashboard.putData("Deliver Cargo Right", new DeliverCargo(side.RIGHT));
+    SmartDashboard.putData("Seq Load Hatch", new HatchLoad());
   }
 }

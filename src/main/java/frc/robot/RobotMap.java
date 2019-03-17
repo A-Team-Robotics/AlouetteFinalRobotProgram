@@ -53,12 +53,13 @@ public class RobotMap {
 
     //Motor Speeds
     public static double rollersSpeed = 0.4, slideSpeed = 1.0, ballGripperSpeed = 1.0;
-    public static int driveSpeed = 1;
+    public static double driveSpeed = 1;
 
     //Encoder and Potentiometer Values System Positions
     public static int elevatorPos1 = 0, elevatorHumanLoad = 34711,
-    elevatorPos2 = 41948, elevatorPos3 = 90000, elevatorHatchLevel = 2500, turretMax = 7610, turretMin = 1, 
-    arm2Max = 622, arm2Min=208, arm1Max= 60000;
+    elevatorPos2 = 41948, elevatorPos3 = 90000, elevatorHatchLevel = 2500, elevatorCargoLevel = 49000, 
+    turretMax = 7600, turretMin = 1, arm2Max = 622, arm2Min=208, arm1Max= 60000, turret0 = 0, turret45 = 0, 
+    turret90 = 0, turret135 = 0, turret180 = 0;
 
     public static final int elevatorClearGripper = 38000;
 
@@ -71,17 +72,7 @@ public class RobotMap {
 
     //Other
     public static int CM_CONVERSION = 360;
-
-    //Non-Drive Controller - 3D Joystick Logitech
-    public static int elevatorTop = 8, elevatorBottom = 12, elevatorMiddle = 10, deployIntake = 9, turretLeft = 5, 
-    turretRight = 6, retractIntake = 7;
-    /*
-    Controls: Drive, AutoModeButton, elevatorLevel1, elevatorLevel2, 
-    elevatorLevel3, openGripper, 
-    closeGripper, gripperIntakeSpeedForward, 
-    gripperIntakeSpeedReverse, deployIntakeStartRollers,
-    retractGripperStopRollers, 
-    */
+    
     //Drive Controller
     public static int changeSpeed = 8, deliverPayload = 1, deployCollector = 2, retractCollector = 3, climb = 5, driveMode = 6;
     //Joystick Controller 
@@ -93,9 +84,6 @@ public class RobotMap {
     //Driver Selection Enumeration
     private static Driver _currentDriver = null;
 
-    //States
-    public static int turretValue = 0;//Weather to make the center button go left or right
-    
     /**
    * Driver Name enum
    * Select which drivers controls to change
