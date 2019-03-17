@@ -12,9 +12,10 @@ public class RetractCollector extends CommandGroup{
         addSequential(new WaitElevatorPosition(RobotMap.elevatorClearGripper, true));
         //
         addSequential(new ArmPnuematics(PnuematicArm.CLOSE));
+        //
         addSequential(new RollersSpeed(RollerSpeed.STOP));
         //
-        addSequential(new WaitArm1WaitArm2(0,0));
+        addSequential(new MultiArm(0,0,true,false));
         //  
         addSequential(new WaitElevatorPosition(RobotMap.elevatorPos1, false));
     }

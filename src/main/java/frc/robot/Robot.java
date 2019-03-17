@@ -55,6 +55,8 @@ public class Robot extends TimedRobot {
   private SendableChooser<RobotMap.Driver> joystickControllerUser = new SendableChooser<RobotMap.Driver>();
   //private SendableChooser<Integer> subsystemTestSelector = new SendableChooser<Integer>();
 
+  //TODO True is for the direction traveling away from zero false is for the direction traveling towards zero
+
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.

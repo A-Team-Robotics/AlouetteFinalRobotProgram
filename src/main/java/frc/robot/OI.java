@@ -38,8 +38,9 @@ public class OI {
   Button closeGripper = new JoystickButton(joystickController, RobotMap.closeGripper);
   Button recieveBall = new JoystickButton(joystickController, RobotMap.recieveBall);
   Button recieveHatch = new JoystickButton(joystickController, RobotMap.recieveHatch);
-  // Button slideFront = new JoystickButton(joystickController, 5);
-  // Button slideBack = new JoystickButton(joystickController, 6);
+  Button slideControl = new JoystickButton(joystickController, RobotMap.slideControl);
+  Button slideFront = new JoystickButton(joystickController, RobotMap.slideFront);
+  Button slideBack = new JoystickButton(joystickController, RobotMap.slideBack);
   Button elevatorBase = new JoystickButton(joystickController, RobotMap.elevatorLevel1);
   Button elevatorLevel2 = new JoystickButton(joystickController, RobotMap.elevatorLevel2);
   Button elevatorLevel3 = new JoystickButton(joystickController, RobotMap.elevatorLevel3);
@@ -52,6 +53,9 @@ public class OI {
   PovButton turret270 = new PovButton(joystickController, 270);
     
   public OI(){
+    slideBack.whenPressed(new SlideBack());
+    slideFront.whenPressed(new SlideFront());
+    slideControl.whileHeld(new SlideControl());
     speed.whenPressed(new SpeedControl());
     recieveBall.whenPressed(new BallReady());
     recieveHatch.whenPressed(new HatchReady());
@@ -61,7 +65,7 @@ public class OI {
     elevatorBase.whenPressed(new ElevatorPosition(RobotMap.elevatorPos1));
     elevatorLevel2.whenPressed(new ElevatorPosition(RobotMap.elevatorPos2));
     elevatorLevel3.whenPressed(new ElevatorPosition(RobotMap.elevatorPos3));
-    elevatorHumanRecieve.whenPressed(new ElevatorPosition(RobotMap.elevatorHumanPos));
+    elevatorHumanRecieve.whenPressed(new ElevatorPosition(RobotMap.elevatorHumanLoad));
     deployBallCollector.whenPressed(new CollectBall());
     retractBallCollector.whenPressed(new RetractCollector());
     turret0.whenActive(new TurretPosition(0));

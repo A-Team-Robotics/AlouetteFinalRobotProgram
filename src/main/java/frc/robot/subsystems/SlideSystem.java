@@ -64,4 +64,8 @@ public class SlideSystem extends Subsystem {
   public boolean getForwardLimit(){
     return _slideForward.get();
   }
+
+  public void joyControl(double percent){
+    slideMotor.set(percent);
+  }
 }

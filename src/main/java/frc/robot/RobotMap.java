@@ -56,11 +56,11 @@ public class RobotMap {
     public static int driveSpeed = 1;
 
     //Encoder and Potentiometer Values System Positions
-    public static int elevatorPos1 = 2, elevatorHatch2 = 41948, elevatorHumanPos = 32000,
-    elevatorPos2 = 41948, elevatorPos3 = 90000, turretMax = 7610, turretMin = 1, 
+    public static int elevatorPos1 = 0, elevatorHumanLoad = 34711,
+    elevatorPos2 = 41948, elevatorPos3 = 90000, elevatorHatchLevel = 2500, turretMax = 7610, turretMin = 1, 
     arm2Max = 622, arm2Min=208, arm1Max= 60000;
 
-    public static final int elevatorClearGripper = 18000;
+    public static final int elevatorClearGripper = 38000;
 
     //BallCollector Deploy Positions 
     public static int deploy1PosFinal = 18100, deploy2Pos1 = arm2Max-40, deploy2PosFinal = deploy2Pos1-220;
@@ -86,7 +86,7 @@ public class RobotMap {
     public static int changeSpeed = 8, deliverPayload = 1, deployCollector = 2, retractCollector = 3, climb = 5, driveMode = 6;
     //Joystick Controller 
     public static int closeGripper = 2, recieveBall = 3, recieveHatch = 4, elevatorLevel1 = 11, elevatorLevel2 = 9, elevatorLevel3 = 7,
-    elevatorHumanRecieve = 10;
+    elevatorHumanRecieve = 10, slideFront = 6, slideBack = 5, slideControl = 7;
 
     //Joystick Ports
     public static int driveController = 0, joystickController = 1;
