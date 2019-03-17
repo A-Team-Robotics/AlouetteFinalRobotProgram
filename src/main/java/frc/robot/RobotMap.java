@@ -61,8 +61,9 @@ public class RobotMap {
     arm2Max = 622, arm2Min=208, arm1Max= 60000;
 
     public static final int elevatorClearGripper = 18000;
+
     //BallCollector Deploy Positions 
-    public static int arm2Pos1 = 219, arm1Pos1 = 29800;
+    public static int deploy1PosFinal = 18100, deploy2Pos1 = arm2Max-40, deploy2PosFinal = deploy2Pos1-220;
 
     //Ball Collector Retract Positions
 

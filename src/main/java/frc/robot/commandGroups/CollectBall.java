@@ -9,7 +9,8 @@ public class CollectBall extends CommandGroup{
     public CollectBall(){
        addSequential(new WaitElevatorPosition(RobotMap.elevatorClearGripper, true));
        //
-       addSequential(new CollectBallArms());
+       addSequential(new WaitArm2Position(219,true));
+       addSequential(new WaitArm1WaitArm2(0,0));
        //
        addSequential(new RollersSpeed(RollerSpeed.FORWARD));
        //

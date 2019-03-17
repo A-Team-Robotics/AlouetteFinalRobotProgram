@@ -24,18 +24,23 @@ public class WaitArm2Position extends Command{
     @Override
     protected boolean isFinished() {
         if(direction==true){
-            if(Robot.ballCollectorArm2.getMotorTwoPos()>(pos-2)){
+            if(Robot.ballCollectorArm2.getMotorTwoPos()>(pos-1)){
                 return true;
             }else{
                 return false;
             }
         }else{
-            if(Robot.ballCollectorArm2.getMotorTwoPos()<(pos+2)){
+            if(Robot.ballCollectorArm2.getMotorTwoPos()<(pos+1)){
                 return true;
             }else{
                 return false;
             }
         }
+        // if(Robot.ballCollectorArm2.getMotorTwoPos()>=(pos-2)&&Robot.ballCollectorArm2.getMotorTwoPos()<(pos+2)){
+        //     return true;
+        // }else{
+        //     return false;
+        // }
     }
 
     @Override
