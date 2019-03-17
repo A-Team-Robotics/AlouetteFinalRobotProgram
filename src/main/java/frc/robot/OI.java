@@ -58,26 +58,44 @@ public class OI {
     
   public OI(){
     slideBack.whenPressed(new SlideBack());
+    //
     slideFront.whenPressed(new SlideFront());
+    //
     slideControl.whileHeld(new SlideControl());
+    //
+    slideControl.whenReleased(new StopSlide());
+    //
     speed.whenPressed(new SpeedControl());
+    //
     recieveBall.whenPressed(new BallReady());
+    //
     recieveHatch.whenPressed(new HatchReady());
+    //
     closeGripper.whenPressed(new CloseGripper());
+    //
     deliverPayload.whenPressed(new DeliverPayload());
+    //
     climb.whenPressed(new Climb());
+    //
     elevatorBase.whenPressed(new ElevatorPosition(RobotMap.elevatorPos1));
+    //
     elevatorLevel2.whenPressed(new ElevatorPosition(RobotMap.elevatorPos2));
+    //
     elevatorLevel3.whenPressed(new ElevatorPosition(RobotMap.elevatorPos3));
+    //
     elevatorHumanRecieve.whenPressed(new ElevatorPosition(RobotMap.elevatorHumanLoad));
+    //
     deployBallCollector.whenPressed(new CollectBall());
+    //
     retractBallCollector.whenPressed(new RetractCollector());
+    //
     turret0.whenActive(new TurretPosition(RobotMap.turret0));
     turret45.whenActive(new TurretPosition(RobotMap.turret45));
     turret90.whenActive(new TurretPosition(RobotMap.turret90));
     turret135.whenActive(new TurretPosition(RobotMap.turret135));
     turret180.whenActive(new TurretPosition(RobotMap.turret180));
     turret270.whenActive(new MoveTurret());
+    //
     SmartDashboard.putData("Deliver Cargo Left", new DeliverCargo(side.LEFT));
     SmartDashboard.putData("Deliver Cargo Right", new DeliverCargo(side.RIGHT));
     SmartDashboard.putData("Seq Load Hatch", new HatchLoad());

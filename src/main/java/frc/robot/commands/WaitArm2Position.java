@@ -1,7 +1,9 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
 public class WaitArm2Position extends Command{
 
@@ -16,6 +18,7 @@ public class WaitArm2Position extends Command{
     @Override
     protected void initialize() {
         Robot.ballCollectorArm2.setMotorTwo(pos);
+        SmartDashboard.putString("Wait Arm2 Status", "Trying to reach position");
     }
 
     @Override
@@ -24,23 +27,18 @@ public class WaitArm2Position extends Command{
     @Override
     protected boolean isFinished() {
         if(direction==true){
-            if(Robot.ballCollectorArm2.getMotorTwoPos()>(pos-1)){
+            if(Robot.ballCollectorArm2.getMotorTwoPos()>(pos-RobotMap.arm2Error)){
                 return true;
             }else{
                 return false;
             }
         }else{
-            if(Robot.ballCollectorArm2.getMotorTwoPos()<(pos+1)){
+            if(Robot.ballCollectorArm2.getMotorTwoPos()<(pos+RobotMap.arm2Error)){
                 return true;
             }else{
                 return false;
             }
         }
-        // if(Robot.ballCollectorArm2.getMotorTwoPos()>=(pos-2)&&Robot.ballCollectorArm2.getMotorTwoPos()<(pos+2)){
-        //     return true;
-        // }else{
-        //     return false;
-        // }
     }
 
     @Override
@@ -50,6 +48,6 @@ public class WaitArm2Position extends Command{
 
     @Override
     protected void end() {
-        
+        SmartDashboard.putString("Wait Arm2 Status", "Position "+pos+" Reached");
     }
 }

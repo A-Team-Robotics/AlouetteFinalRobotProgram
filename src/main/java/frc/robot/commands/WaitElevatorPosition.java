@@ -1,6 +1,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 public class WaitElevatorPosition extends Command{
@@ -16,6 +17,7 @@ public class WaitElevatorPosition extends Command{
     @Override
     protected void initialize() {
         Robot.elevatorSystem.setElevatorPosition(pos);
+        SmartDashboard.putString("Wait Elevator Status", "Trying to reach position");
     }
 
     @Override
@@ -24,13 +26,13 @@ public class WaitElevatorPosition extends Command{
     @Override
     protected boolean isFinished() {
         if(direction==true){
-            if(Robot.elevatorSystem.getElevaotrPosition()>(pos-20)){
+            if(Robot.elevatorSystem.getElevaotrPosition()>(pos-10)){
                 return true;
             }else{
                 return false;
             }
         }else{
-            if(Robot.elevatorSystem.getElevaotrPosition()<(pos+20)){
+            if(Robot.elevatorSystem.getElevaotrPosition()<(pos+10)){
                 return true;
             }else{
                 return false;
@@ -45,6 +47,6 @@ public class WaitElevatorPosition extends Command{
 
     @Override
     protected void end() {
-        
+        SmartDashboard.putString("Wait Elevator Status", "Position "+pos+" Reached");
     }
 }

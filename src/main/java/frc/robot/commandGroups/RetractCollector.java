@@ -7,7 +7,7 @@ import frc.robot.RobotMap.RollerSpeed;
 import frc.robot.commands.*;
 
 public class RetractCollector extends CommandGroup{
-    public static int retractArm1pos = 0, retractArm2pos = 0;
+    public static int arm1RS1 = 0, arm2RS1 = 514, arm2RS2;
     public RetractCollector(){
         addSequential(new WaitElevatorPosition(RobotMap.elevatorClearGripper, true));
         //
@@ -15,7 +15,9 @@ public class RetractCollector extends CommandGroup{
         //
         addSequential(new RollersSpeed(RollerSpeed.STOP));
         //
-        addSequential(new MultiArm(0,0,true,false));
+        addSequential(new WaitArm2Position(514, true));
+        //
+        addSequential(new MultiArm(RobotMap.arm1Min,RobotMap.arm2Max,false, true));
         //  
         addSequential(new WaitElevatorPosition(RobotMap.elevatorPos1, false));
     }

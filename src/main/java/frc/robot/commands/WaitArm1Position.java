@@ -1,6 +1,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 public class WaitArm1Position extends Command{
@@ -16,6 +17,7 @@ public class WaitArm1Position extends Command{
     @Override
     protected void initialize() {
         Robot.ballCollector.setMotorOne(pos);
+        SmartDashboard.putString("Wait Arm1 Status", "Trying to reach position");
     }
 
     @Override
@@ -45,6 +47,6 @@ public class WaitArm1Position extends Command{
 
     @Override
     protected void end() {
-        
+        SmartDashboard.putString("Wait Arm1 Status","Position "+pos+" Reached");
     }
 }

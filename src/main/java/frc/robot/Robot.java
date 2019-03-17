@@ -151,7 +151,7 @@ public class Robot extends TimedRobot {
     if(Robot.turret.getLeftLimitSwitch()==false){
       Robot.turret.resetEncoderLeft();
       Robot.turret.setTurretPos(200);
-      //TODO Add positions for when the turret zero position is fliped so TurretPosition will work right
+      //TODO Turret set positions switch 0,45,90...
       RobotMap.turretMax = 0;
       RobotMap.turretMin = 7600;
       Scheduler.getInstance().add(new MoveTurret());

@@ -58,20 +58,35 @@ public class RobotMap {
     //Encoder and Potentiometer Values System Positions
     public static int elevatorPos1 = 0, elevatorHumanLoad = 34711,
     elevatorPos2 = 41948, elevatorPos3 = 90000, elevatorHatchLevel = 2500, elevatorCargoLevel = 49000, 
-    turretMax = 7600, turretMin = 1, arm2Max = 622, arm2Min=208, arm1Max= 60000, turret0 = 0, turret45 = 0, 
-    turret90 = 0, turret135 = 0, turret180 = 0;
+    turretMax = 7600, turretMin = 0, arm2Max = 645, arm2Min=208, arm1Max= 60000, arm1Min = 0, turret0 = 0, turret45 = 1900, 
+    turret90 = 3800, turret135 = 5700, turret180 = 7600;
 
     public static final int elevatorClearGripper = 38000;
 
+    public static final int arm2RetractPosFinal = 743;
+    
+    public static final int arm2CollectPosfinal = arm2RetractPosFinal-220;
+
+    public static final int arm2RetractPos1 = arm2CollectPosfinal + 10;
+
+    public static final int arm2LoadPos = arm2RetractPosFinal - 280;
+
     //BallCollector Deploy Positions 
-    public static int deploy1PosFinal = 18100, deploy2Pos1 = arm2Max-40, deploy2PosFinal = deploy2Pos1-220;
+    public static int arm2DS1 = (arm2Max-40), arm2SD2 = (arm2Max-220), arm1DS1 = 18200;
+
+    //public static int deploy1PosFinal = 18100, deploy2Pos1 = arm2Max-40, deploy2PosFinal = deploy2Pos1-220;
 
     //Ball Collector Retract Positions
+    public static int arm2CS1 = (arm2Max-40), arm2CS2 = (arm2Max-220), arm1CS1 = 18200, arm1CS2 = 0;
 
     //Ball Collector Transfer Positions
+    public static int arm1TS1 = 17500, arm2TS1 = (arm2Max-329);
 
     //Other
     public static int CM_CONVERSION = 360;
+    public static int elevatorError = 20;
+    public static int arm1Error = 0;
+    public static int arm2Error = 2;
     
     //Drive Controller
     public static int changeSpeed = 8, deliverPayload = 1, deployCollector = 2, retractCollector = 3, climb = 5, driveMode = 6;

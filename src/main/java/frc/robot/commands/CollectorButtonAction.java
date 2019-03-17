@@ -1,6 +1,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 public class CollectorButtonAction extends Command {
@@ -10,7 +11,7 @@ public class CollectorButtonAction extends Command {
     }
     @Override
     protected void execute() {
-        
+        SmartDashboard.putString("Collect Ball Status", "Waiting for button to be pressed");
     }
     @Override
     protected boolean isFinished() {
@@ -28,7 +29,7 @@ public class CollectorButtonAction extends Command {
 
     @Override
     protected void end() {
-        
+        SmartDashboard.putString("Collect Ball Status","waiting...");
     }
 
 }
