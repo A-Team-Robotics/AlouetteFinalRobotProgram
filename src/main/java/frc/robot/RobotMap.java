@@ -55,11 +55,15 @@ public class RobotMap {
     public static double rollersSpeed = 0.4, slideSpeed = 1.0, ballGripperSpeed = 1.0;
     public static double driveSpeed = 1;
 
+    //Sensor Phase Settings
+    public static final boolean slideSensorPhase = true;
+
     //Encoder and Potentiometer Values System Positions
-    public static int elevatorPos1 = 0, elevatorHumanLoad = 34711,
+    public static int elevatorPos1 = 0, elevatorHumanLoad = 34711, elevatorClearBallCollector = 38000,
     elevatorPos2 = 41948, elevatorPos3 = 90000, elevatorHatchLevel = 2500, elevatorCargoLevel = 49000, 
-    turretMax = 7600, turretMin = 0, arm2Max = 645, arm2Min=208, previousArm2Max = 0, changeInArm2 = previousArm2Max-arm2Max, arm1Max= 60000, arm1Min = 0, turret0 = 0, turret45 = 1900, 
-    turret90 = 3800, turret135 = 5700, turret180 = 7600;
+    turretMax = 7600, turretMin = 0, arm2Max = 645, arm2Min=208, previousArm2Max = 0, changeInArm2 = previousArm2Max-arm2Max,
+    arm1Max= 60000, arm1Min = 0, turret0 = 0, turret45 = 1900, turret90 = 3800, turret135 = 5700, turret180 = 7600,
+    slideFrontPos = 3000, slideBackPos = 0, slidePos1 = 1000, slidePos2 = 1500, slidePos3 = 2000;
 
     //BallCollector Deploy Positions 
     public static int arm2DS1 = (arm2Max-40)-changeInArm2, arm2SD2 = (arm2Max-220)-changeInArm2, arm1DS1 = 18200;
@@ -77,6 +81,8 @@ public class RobotMap {
     public static int elevatorError = 20;
     public static int arm1Error = 0;
     public static int arm2Error = 2;
+    public static int slideError = 10;
+    public static int turretError = 10;
     
     //Drive Controller
     public static int changeSpeed = 8, deliverPayload = 1, deployCollector = 2, retractCollector = 3, climb = 5, driveMode = 6;
@@ -88,6 +94,17 @@ public class RobotMap {
     public static int driveController = 0, joystickController = 1;
     //Driver Selection Enumeration
     private static Driver _currentDriver = null;
+
+    /**
+   * Direction
+   * Select forward travel direction or reverse
+   */
+    public enum Direction{
+        FORWARD, 
+        REVERSE,
+        STOP,
+        NULL
+    }
 
     /**
    * Driver Name enum

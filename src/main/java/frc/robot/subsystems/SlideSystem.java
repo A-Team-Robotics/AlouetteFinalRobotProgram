@@ -23,38 +23,42 @@ public class SlideSystem extends Subsystem {
 
   private final DigitalInput _slideForward = new DigitalInput(RobotMap.TURRET_SLIDE_FORWARD);
 
-    private final DigitalInput _slideReverse = new DigitalInput(RobotMap.TURRET_SLIDE_BACKWARD);
+  private final DigitalInput _slideReverse = new DigitalInput(RobotMap.TURRET_SLIDE_BACKWARD);
 
-  private WPI_TalonSRX slideMotor = new WPI_TalonSRX(RobotMap.TURRET_SLIDE_MOTOR);
+  private WPI_TalonSRX _slideMotor = new WPI_TalonSRX(RobotMap.TURRET_SLIDE_MOTOR);
 
   @Override
   public void initDefaultCommand() {
      setDefaultCommand(null);
   }
 
+  public void init(){
+    _slideMotor.setSensorPhase(RobotMap.slideSensorPhase);
+  }
+
   public void stopMotor(){
-    slideMotor.set(ControlMode.Disabled, 0.0);
-    slideMotor.stopMotor();
+    _slideMotor.set(ControlMode.Disabled, 0.0);
+    _slideMotor.stopMotor();
   }
 
   public void moveFront(){
-    slideMotor.set(RobotMap.slideSpeed);
+    _slideMotor.set(RobotMap.slideSpeed);
   }
 
   public void moveReverse(){
-      slideMotor.set(-RobotMap.slideSpeed);
+      _slideMotor.set(-RobotMap.slideSpeed);
   }
 
   public void setPID(int pos){
-    slideMotor.set(ControlMode.Position, pos);
+    _slideMotor.set(ControlMode.Position, pos);
   }
 
   public void setMotorSpeed(double speed){
-    slideMotor.set(speed);
+    _slideMotor.set(speed);
   }
   
   public void disablePID(){
-    slideMotor.disable();
+    _slideMotor.disable();
   }
 
   public boolean getReverseLimit(){
@@ -66,6 +70,14 @@ public class SlideSystem extends Subsystem {
   }
 
   public void joyControl(double percent){
-    slideMotor.set(percent);
+    _slideMotor.set(percent);
+  }
+
+  public void setPosition(int pos){
+    _slideMotor.set(ControlMode.Position, pos);
+  }
+
+  public int getPosition(){
+    return _slideMotor.getSelectedSensorPosition();
   }
 }

@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.POVButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commandGroups.*;
+import frc.robot.commandGroups.DeliverCargo.side;
 import frc.robot.commands.*;
 
 /**
@@ -50,17 +51,17 @@ public class OI {
   POVButton turret270 = new POVButton(joystickController, 270);
     
   public OI(){
-    slideBack.whenPressed(new SlideBack());
+    slideBack.whenPressed(new SlideBack());//Slide Back Until Limit
     //
-    slideFront.whenPressed(new SlideFront());
+    slideFront.whenPressed(new SlideFront());//Slide Front Unitl Limit
     //
-    slideControl.whileHeld(new SlideControl());
+    slideControl.whileHeld(new SlideControl());//Joystick Slide Control
     //
-    slideControl.whenReleased(new StopSlide());
+    slideControl.whenReleased(new StopSlide());//Stop Slide Motor
     //
-    speed.whenPressed(new SpeedControl());
+    speed.whenPressed(new SpeedControl());//Set Max Drive Speed
     //
-    recieveBall.whenPressed(new BallReady());
+    recieveBall.whenPressed(new BallReady());//Get A Ball From Human Station
     //
     recieveHatch.whenPressed(new HatchReady());
     //
@@ -92,5 +93,6 @@ public class OI {
     SmartDashboard.putData("Deliver Cargo Left", new DeliverCargo(side.LEFT));
     SmartDashboard.putData("Deliver Cargo Right", new DeliverCargo(side.RIGHT));
     SmartDashboard.putData("Seq Load Hatch", new HatchLoad());
+    SmartDashboard.putData("E-Stop", new EStop());
   }
 }

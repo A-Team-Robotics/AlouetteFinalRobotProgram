@@ -7,7 +7,7 @@ import frc.robot.commands.*;
 
 public class CollectBall extends CommandGroup{
     public CollectBall(){
-       addSequential(new WaitElevatorPosition(RobotMap.elevatorClearGripper, true));
+       addSequential(new WaitElevatorPosition(RobotMap.elevatorClearBallCollector, true));
        //
        addSequential(new SlideBack());
        //

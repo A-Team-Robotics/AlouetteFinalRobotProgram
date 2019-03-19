@@ -9,7 +9,7 @@ public class StopSlide extends InstantCommand{
     }
 
     @Override
-    protected void execute() {
+    protected void initialize() {
         Robot.slideSystem.stopMotor();
     }
 }

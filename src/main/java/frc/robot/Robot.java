@@ -169,6 +169,15 @@ public class Robot extends TimedRobot {
   public void testPeriodic() {
   }
 
+  public static void eStop(){
+    turret.stopMotor();
+    elevatorSystem.stopMotor();
+    slideSystem.stopMotor();
+    gripperSystem.stopMotor();
+    ballCollector.stopMotor();
+    ballCollectorArm2.stopMotor();
+  }
+
   // if(Robot.turret.getLeftLimitSwitch()==false){
   //   int currentPos = Robot.turret.getPosition();
   //   RobotMap.turretMin = currentPos;
