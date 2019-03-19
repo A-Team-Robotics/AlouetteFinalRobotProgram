@@ -19,13 +19,13 @@ public class RobotMap {
     public static final int BACK_LEFT_MOTOR = 2;
     public static final int BACK_RIGHT_MOTOR = 1;
     public static final int FRONT_LEFT_MOTOR = 4;
-    public static final int FRONT_RIGHT_MOTOR = 12;
+    public static final int FRONT_RIGHT_MOTOR = 3;
     public static final int ELEVATOR_MOTOR = 5;
     public static final int GRIPPER_MOTOR = 9;
     public static final int BALL_COLLECTOR_MOTOR_ONE = 6;
     public static final int BALL_COLLECTOR_MOTOR_TWO = 7;
     public static final int ROLLER_MOTOR_LEFT = 11;
-    public static final int ROLLER_MOTOR_RIGHT = 3;
+    public static final int ROLLER_MOTOR_RIGHT = 12;
     public static final int TURRET_SLIDE_MOTOR = 8;
     public static final int TURRET_TURN_MOTOR = 10;
     public static final int COMPRESSOR = 0;
@@ -58,29 +58,19 @@ public class RobotMap {
     //Encoder and Potentiometer Values System Positions
     public static int elevatorPos1 = 0, elevatorHumanLoad = 34711,
     elevatorPos2 = 41948, elevatorPos3 = 90000, elevatorHatchLevel = 2500, elevatorCargoLevel = 49000, 
-    turretMax = 7600, turretMin = 0, arm2Max = 645, arm2Min=208, arm1Max= 60000, arm1Min = 0, turret0 = 0, turret45 = 1900, 
+    turretMax = 7600, turretMin = 0, arm2Max = 645, arm2Min=208, previousArm2Max = 0, changeInArm2 = previousArm2Max-arm2Max, arm1Max= 60000, arm1Min = 0, turret0 = 0, turret45 = 1900, 
     turret90 = 3800, turret135 = 5700, turret180 = 7600;
 
-    public static final int elevatorClearGripper = 38000;
-
-    public static final int arm2RetractPosFinal = 743;
-    
-    public static final int arm2CollectPosfinal = arm2RetractPosFinal-220;
-
-    public static final int arm2RetractPos1 = arm2CollectPosfinal + 10;
-
-    public static final int arm2LoadPos = arm2RetractPosFinal - 280;
-
     //BallCollector Deploy Positions 
-    public static int arm2DS1 = (arm2Max-40), arm2SD2 = (arm2Max-220), arm1DS1 = 18200;
+    public static int arm2DS1 = (arm2Max-40)-changeInArm2, arm2SD2 = (arm2Max-220)-changeInArm2, arm1DS1 = 18200;
 
     //public static int deploy1PosFinal = 18100, deploy2Pos1 = arm2Max-40, deploy2PosFinal = deploy2Pos1-220;
 
     //Ball Collector Retract Positions
-    public static int arm2CS1 = (arm2Max-40), arm2CS2 = (arm2Max-220), arm1CS1 = 18200, arm1CS2 = 0;
+    public static int arm2CS1 = (arm2Max-40)-changeInArm2, arm2CS2 = (arm2Max-220)-changeInArm2, arm1CS1 = 18200, arm1CS2 = 0;
 
     //Ball Collector Transfer Positions
-    public static int arm1TS1 = 17500, arm2TS1 = (arm2Max-329);
+    public static int arm1TS1 = 17500, arm2TS1 = (arm2Max-329)-changeInArm2;
 
     //Other
     public static int CM_CONVERSION = 360;
@@ -186,7 +176,7 @@ public class RobotMap {
   public enum PnuematicArm{
     OPEN,
     CLOSE,
-}
+  }
 }
 /*
  * XBOX BUTTON MAPPING FOR DRIVER STATION AS FOLLOWS
