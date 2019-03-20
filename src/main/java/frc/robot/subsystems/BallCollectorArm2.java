@@ -41,11 +41,11 @@ public class BallCollectorArm2 extends Subsystem {
         SmartDashboard.putNumber("Ball Collector Arm Two",_armTwoMotor.getSelectedSensorPosition());
     }
 
-    public void setMotorTwo(double pos){
+    public void setMotorPos(double pos){
         _armTwoMotor.set(ControlMode.Position, pos);
     }
 
-    public int getMotorTwoPos(){
+    public int getMotorPos(){
         currentPosition = _armTwoMotor.getSelectedSensorPosition();
         return _armTwoMotor.getSelectedSensorPosition();
     }

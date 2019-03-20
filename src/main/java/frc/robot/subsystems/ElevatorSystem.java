@@ -31,7 +31,7 @@ public class ElevatorSystem extends Subsystem{
 
     
     public void log() {
-        SmartDashboard.putNumber("Elevator Encoder Position", getElevaotrPosition());
+        SmartDashboard.putNumber("Elevator Encoder Position", getMotorPos());
         SmartDashboard.putNumber("Talon 5 Temp", _elevatorDriveMotor.getTemperature());
     }
 
@@ -46,7 +46,7 @@ public class ElevatorSystem extends Subsystem{
    *
    * @param speed Set the speed of the motor. Value should be 1.0 to -1.0
    */
-    public void setElevatorSpeed(double speed){
+    public void setMotorSpeed(double speed){
         _elevatorDriveMotor.set(speed);
     }
 
@@ -65,7 +65,7 @@ public class ElevatorSystem extends Subsystem{
     *
     * @return get the current state of the limit switch. boolean true or false 
         */
-        public void setElevatorPosition(int pos){
+        public void setMotorPos(int pos){
             _elevatorDriveMotor.set(ControlMode.Position, pos);
         }
     
@@ -76,7 +76,7 @@ public class ElevatorSystem extends Subsystem{
     *
     * @return the current position of the elevator as an integer
      */
-        public int getElevaotrPosition(){
+        public int getMotorPos(){
             return _elevatorDriveMotor.getSelectedSensorPosition(0);
         }
 

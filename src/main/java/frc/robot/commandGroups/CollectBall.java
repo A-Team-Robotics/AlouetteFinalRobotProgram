@@ -7,17 +7,17 @@ import frc.robot.commands.*;
 
 public class CollectBall extends CommandGroup{
     public CollectBall(){
-       addSequential(new WaitElevatorPosition(RobotMap.elevatorClearGripper, true));
+       addSequential(new WaitElevatorPosition(RobotMap.elevatorClearGripper));
        //
        addSequential(new SlideBack());
        //
-       addSequential(new WaitArm2Position(RobotMap.arm2DS1,true));
+       addSequential(new WaitArm2Position(RobotMap.arm2DS1));
        //
        addSequential(new RollersSpeed(RollerSpeed.FORWARD));
        //
-       addSequential(new MultiArm(RobotMap.arm1DS1,RobotMap.arm2SD2,true,false));
+       addSequential(new MultiArm(RobotMap.arm1DS1,RobotMap.arm2SD2));
        //
-       addSequential(new WaitElevatorPosition(RobotMap.elevatorPos1, false));
+       addSequential(new WaitElevatorPosition(RobotMap.elevatorPos1));
        //
        addParallel(new LoadBall());
        //

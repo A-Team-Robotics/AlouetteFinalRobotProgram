@@ -10,30 +10,35 @@ public class WaitArm2Position extends Command{
     private int pos = 0;
     private boolean direction = true; //true is forward and false is backward
 
-    public WaitArm2Position(int pos,boolean dir){
+    public WaitArm2Position(int pos){
         this.pos=pos;
-        this.direction=dir;
         requires(Robot.ballCollectorArm2);
     }
     @Override
     protected void initialize() {
-        Robot.ballCollectorArm2.setMotorTwo(pos);
+        if (Robot.ballCollectorArm2.getMotorPos() > this.pos){
+            this.direction = false;
+        }else {
+            this.direction = true;
+        }
         SmartDashboard.putString("Wait Arm2 Status", "Trying to reach position");
     }
 
     @Override
-    protected void execute() {}
+    protected void execute() {
+        Robot.ballCollectorArm2.setMotorPos(pos);        
+    }
 
     @Override
     protected boolean isFinished() {
         if(direction==true){
-            if(Robot.ballCollectorArm2.getMotorTwoPos()>(pos-RobotMap.arm2Error)){
+            if(Robot.ballCollectorArm2.getMotorPos()>(pos-RobotMap.arm2Error)){
                 return true;
             }else{
                 return false;
             }
         }else{
-            if(Robot.ballCollectorArm2.getMotorTwoPos()<(pos+RobotMap.arm2Error)){
+            if(Robot.ballCollectorArm2.getMotorPos()<(pos+RobotMap.arm2Error)){
                 return true;
             }else{
                 return false;

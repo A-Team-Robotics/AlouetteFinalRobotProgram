@@ -16,7 +16,7 @@ public class DeliverPayload extends InstantCommand{
             case BALL:
             Robot.gripperSystem.closelowerGripper();
             Robot.gripperSystem.closeUpperGripper();
-            Robot.gripperSystem.setGripperMotor(RobotMap.ballGripperSpeed);
+            Robot.gripperSystem.setMotorSpeed(RobotMap.ballGripperSpeed);
             SmartDashboard.putBoolean("Upper Gripper", false);
             SmartDashboard.putBoolean("Lower Gripper", false);
               break;

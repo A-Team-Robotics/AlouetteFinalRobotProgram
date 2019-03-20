@@ -7,17 +7,17 @@ import frc.robot.commands.*;
 
 public class Climb extends CommandGroup{
     public Climb(){
-       addSequential(new WaitElevatorPosition(18000, true));
+       addSequential(new WaitElevatorPosition(18000));
        //
-       addParallel(new WaitArm2Position(250, false));
+       addParallel(new WaitArm2Position(250));
        //
-       addParallel(new WaitArm1Position(23438, true));
+       addParallel(new WaitArm1Position(23438));
        //
-       addSequential(new WaitArm2Position(219, true));
+       addSequential(new WaitArm2Position(219));
        //
-       addSequential(new WaitElevatorPosition(RobotMap.elevatorPos1, false));
+       addSequential(new WaitElevatorPosition(RobotMap.elevatorPos1));
        //
-       addParallel(new WaitArm1Position(29800, true));
+       addParallel(new WaitArm1Position(29800));
        addParallel(new RollersSpeed(RollerSpeed.STOP));
     }
 }

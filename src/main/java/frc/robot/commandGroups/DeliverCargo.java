@@ -14,12 +14,12 @@ public class DeliverCargo extends CommandGroup {
     public DeliverCargo(side s) {
         switch(s){
             case LEFT:
-            addSequential(new WaitElevatorPosition(RobotMap.elevatorCargoLevel,true));
+            addSequential(new WaitElevatorPosition(RobotMap.elevatorCargoLevel));
             addSequential(new TurretPosition(RobotMap.turretMin));
             addSequential(new SlideFront());
             break;
             case RIGHT:
-            addSequential(new WaitElevatorPosition(RobotMap.elevatorCargoLevel,true));
+            addSequential(new WaitElevatorPosition(RobotMap.elevatorCargoLevel));
             addSequential(new TurretPosition(RobotMap.turretMax));
             addSequential(new SlideFront());
             break;

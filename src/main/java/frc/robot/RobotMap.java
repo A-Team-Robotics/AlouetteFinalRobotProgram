@@ -58,8 +58,24 @@ public class RobotMap {
     //Encoder and Potentiometer Values System Positions
     public static int elevatorPos1 = 0, elevatorHumanLoad = 34711,
     elevatorPos2 = 41948, elevatorPos3 = 90000, elevatorHatchLevel = 2500, elevatorCargoLevel = 49000, 
-    turretMax = 7600, turretMin = 0, arm2Max = 645, arm2Min=208, arm1Max= 60000, arm1Min = 0, turret0 = 0, turret45 = 1900, 
-    turret90 = 3800, turret135 = 5700, turret180 = 7600;
+    arm2Max = 645, arm2Min=208, arm1Max= 60000, arm1Min = 0;
+
+    //Turret Encoder Limits
+    public static  int turretMin = 0;
+
+    public static  int turretMax = 7610;
+
+    public static final int turret0 = turretMax + 200;
+
+    public static final int turret180 = turretMax - 200;       
+
+    public static final int turret45 = turretMin + (turret0-turret180)/4;
+
+    public static final int turret90 = (turret0+turret180)/2;
+
+    public static final int turret135 = turret90 + (turret0-turret180)/4;
+
+    //---------------------------------------------------------------------------------------------------------------------------//
 
     public static final int elevatorClearGripper = 38000;
 

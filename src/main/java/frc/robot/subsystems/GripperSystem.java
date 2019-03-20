@@ -44,7 +44,7 @@ public class GripperSystem extends Subsystem {
     gripperMotor.set(ControlMode.Disabled, 0.0);
   }
 
-  public void setGripperMotor(double speed){
+  public void setMotorSpeed(double speed){
     gripperMotor.set(ControlMode.PercentOutput, speed);
   }
 

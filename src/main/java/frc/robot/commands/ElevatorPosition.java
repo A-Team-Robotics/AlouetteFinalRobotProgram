@@ -12,6 +12,6 @@ public class ElevatorPosition extends InstantCommand{
     }
     @Override
     protected void execute() {
-        Robot.elevatorSystem.setElevatorPosition(pos);
+        Robot.elevatorSystem.setMotorPos(pos);
     }
 }

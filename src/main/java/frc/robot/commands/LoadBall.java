@@ -14,7 +14,7 @@ public class LoadBall extends InstantCommand{
     protected void execute() {
         Robot.gripperSystem.openLowerGripper();
         Robot.gripperSystem.openUpperGripper();
-        Robot.gripperSystem.setGripperMotor(-RobotMap.ballGripperSpeed);
+        Robot.gripperSystem.setMotorSpeed(-RobotMap.ballGripperSpeed);
         SmartDashboard.putBoolean("Upper Gripper", true);
         SmartDashboard.putBoolean("Lower Gripper", true);
     }

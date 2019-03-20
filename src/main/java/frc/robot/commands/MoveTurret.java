@@ -3,6 +3,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.OI;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 import frc.robot.subsystems.TurretSystem;
 
 public class MoveTurret extends Command {
@@ -12,7 +13,7 @@ public class MoveTurret extends Command {
     }
     @Override
     protected void execute() {
-        Robot.turret.setTurretPos((int)TurretSystem.map(OI.joystickController.getThrottle(), -1, 1, 200, 7500));//200, 7500
+        Robot.turret.setTurretPos((int)TurretSystem.map(OI.joystickController.getThrottle(), -1, 1, RobotMap.turret0, RobotMap.turret180));//200, 7500
         if(Robot.turret.getLeftLimitSwitch()==false||Robot.turret.getRightLimitSwitch()==false){
             Robot.turret.stopMotor();
         }

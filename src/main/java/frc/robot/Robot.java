@@ -19,7 +19,7 @@ import frc.robot.RobotMap.Payload;
 import frc.robot.commands.MoveTurret;
 import frc.robot.subsystems.ArmPneumatics;
 import frc.robot.subsystems.BallCollectorArm2;
-import frc.robot.subsystems.BallCollectorSystem;
+import frc.robot.subsystems.BallCollectorArm1;
 import frc.robot.subsystems.DriveSystem;
 import frc.robot.subsystems.ElevatorSystem;
 import frc.robot.subsystems.GripperSystem;
@@ -36,7 +36,7 @@ import frc.robot.subsystems.TurretSystem;
 public class Robot extends TimedRobot {
   public static ArmPneumatics arm = new ArmPneumatics();
   public static BallCollectorArm2 ballCollectorArm2 = new BallCollectorArm2();
-  public static BallCollectorSystem ballCollector = new BallCollectorSystem();
+  public static BallCollectorArm1 ballCollectorArm1 = new BallCollectorArm1();
   public static ElevatorSystem elevatorSystem = new ElevatorSystem();
   public static GripperSystem gripperSystem = new GripperSystem();
   public static SlideSystem slideSystem = new SlideSystem();
@@ -74,11 +74,11 @@ public class Robot extends TimedRobot {
     Timer.delay(4);
     drive.init();
     ballCollectorArm2.init();
-    ballCollector.init();
+    ballCollectorArm1.init();
     turret.init();
     elevatorSystem.init();
     m_oi = new OI();
-    RobotMap.arm1Max=ballCollectorArm2.getMotorTwoPos();
+    RobotMap.arm1Max=ballCollectorArm2.getMotorPos();
   }
 
   /**
@@ -105,7 +105,7 @@ public class Robot extends TimedRobot {
     elevatorSystem.stopMotor();
     slideSystem.stopMotor();
     gripperSystem.stopMotor();
-    ballCollector.stopMotor();
+    ballCollectorArm1.stopMotor();
     ballCollectorArm2.stopMotor();
   }
 
@@ -148,18 +148,25 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    SmartDashboard.putBoolean("Forward Limit", Robot.slideSystem.getForwardLimit());
+    SmartDashboard.putBoolean("Reverse Limit", Robot.slideSystem.getReverseLimit());
+    ballCollectorArm1.log();
+    ballCollectorArm2.log();
+    turret.log();
+    SmartDashboard.putData(Robot.drive._driveBase);
+    elevatorSystem.log();
+
     if(Robot.turret.getLeftLimitSwitch()==false){
-      Robot.turret.resetEncoderLeft();
-      Robot.turret.setTurretPos(200);
-      //TODO Turret set positions switch 0,45,90...
-      RobotMap.turretMax = 0;
-      RobotMap.turretMin = 7600;
+      int currentPos = Robot.turret.getPosition();
+      RobotMap.turretMin = currentPos;
+      RobotMap.turretMax = currentPos+7610;
+      Robot.turret.setTurretPos(RobotMap.turret0);
      }
      if(Robot.turret.getRightLimitSwitch()==false){
-      Robot.turret.resetEncoderRight();
-      Robot.turret.setTurretPos(200);
-      RobotMap.turretMax = 7600;
-      RobotMap.turretMin = 0;
+      int currentPos = Robot.turret.getPosition();
+      RobotMap.turretMin = currentPos-7610;
+      RobotMap.turretMax = currentPos;
+      Robot.turret.setTurretPos(RobotMap.turret180);
      }
   }
 

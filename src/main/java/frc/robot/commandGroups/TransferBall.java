@@ -9,7 +9,7 @@ public class TransferBall extends CommandGroup{
     public TransferBall(){
         addSequential(new RollersSpeed(RollerSpeed.STOP));
         //
-        addSequential(new MultiArm(RobotMap.arm1TS1,RobotMap.arm2TS1, false, false));
+        addSequential(new MultiArm(RobotMap.arm1TS1,RobotMap.arm2TS1));
         //
         addSequential(new RollersSpeed(RollerSpeed.FORWARD));
         //

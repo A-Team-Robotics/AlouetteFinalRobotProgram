@@ -9,30 +9,36 @@ public class WaitArm1Position extends Command{
     private int pos = 0;
     private boolean direction = true; //true is forward and false is backward
 
-    public WaitArm1Position(int pos,boolean dir){
+    public WaitArm1Position(int pos){
         this.pos=pos;
-        this.direction=dir;
-        requires(Robot.ballCollector);
+        requires(Robot.ballCollectorArm1);
     }
+    
     @Override
     protected void initialize() {
-        Robot.ballCollector.setMotorOne(pos);
+        if (Robot.ballCollectorArm1.getMotorPos() > this.pos){
+            this.direction = false;
+        }else {
+            this.direction = true;
+        }
         SmartDashboard.putString("Wait Arm1 Status", "Trying to reach position");
     }
 
     @Override
-    protected void execute() {}
+    protected void execute() {
+        Robot.ballCollectorArm1.setMotorPos(pos);
+    }
 
     @Override
     protected boolean isFinished() {
         if(direction==true){
-            if(Robot.ballCollector.getArmOnePosition()>(pos-10)){
+            if(Robot.ballCollectorArm1.getMotorPos()>(pos-10)){
                 return true;
             }else{
                 return false;
             }
         }else{
-            if(Robot.ballCollector.getArmOnePosition()<(pos+10)){
+            if(Robot.ballCollectorArm1.getMotorPos()<(pos+10)){
                 return true;
             }else{
                 return false;

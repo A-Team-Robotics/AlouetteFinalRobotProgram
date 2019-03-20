@@ -8,7 +8,7 @@ import frc.robot.commands.WaitElevatorPosition;
 
 public class HatchLoad extends CommandGroup {
     public HatchLoad() {
-        addSequential(new WaitElevatorPosition(RobotMap.elevatorHatchLevel,true));
+        addSequential(new WaitElevatorPosition(RobotMap.elevatorHatchLevel));
         addSequential(new TurretPosition(RobotMap.turret90));
         addSequential(new SlideBack());
     }

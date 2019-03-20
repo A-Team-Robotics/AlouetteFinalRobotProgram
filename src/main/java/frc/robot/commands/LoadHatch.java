@@ -14,7 +14,7 @@ public class LoadHatch extends InstantCommand{
     protected void execute() {
         Robot.gripperSystem.openLowerGripper();
         Robot.gripperSystem.closeUpperGripper();
-        Robot.gripperSystem.setGripperMotor(0.0);
+        Robot.gripperSystem.stopMotor();
         Robot._payloadState=Payload.HATCH;
         SmartDashboard.putBoolean("Upper Gripper", false);
         SmartDashboard.putBoolean("Lower Gripper", true);
