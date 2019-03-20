@@ -64,6 +64,7 @@ public class TurretSystem extends Subsystem {
 
   public void resetEncoderLeft(){
     _turretMotor.setSelectedSensorPosition(0);
+    _turretMotor.setSensorPhase(false);
   }
 
   public void resetEncoderRight(){

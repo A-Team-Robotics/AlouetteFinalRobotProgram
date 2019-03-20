@@ -70,7 +70,7 @@ public class Robot extends TimedRobot {
     joystickControllerUser.setDefaultOption("Joystick Controller - Justin D", Driver.JUSTIND);
     SmartDashboard.putData("Select Xbox Operator", xboxControllerUser);
     SmartDashboard.putData("Select Joystick Operator", joystickControllerUser);
-    Timer.delay(3);
+    Timer.delay(4);
     drive.init();
     ballCollectorArm2.init();
     ballCollector.init();
@@ -159,7 +159,6 @@ public class Robot extends TimedRobot {
       RobotMap.turretMax = 7600;
       RobotMap.turretMin = 0;
      }
-      elevatorSystem.log();
   }
 
   /**
@@ -177,19 +176,5 @@ public class Robot extends TimedRobot {
     ballCollector.stopMotor();
     ballCollectorArm2.stopMotor();
   }
-
-  // if(Robot.turret.getLeftLimitSwitch()==false){
-  //   int currentPos = Robot.turret.getPosition();
-  //   RobotMap.turretMin = currentPos;
-  //   RobotMap.turretMax = currentPos+7610;
-  //   Robot.turret.setTurretPos(currentPos+500);
-  //   Scheduler.getInstance().add(new MoveTurret());
-  //  }
-  //  if(Robot.turret.getRightLimitSwitch()==false){
-  //    int currentPos = Robot.turret.getPosition();
-  //    RobotMap.turretMin = currentPos-7610;
-  //    RobotMap.turretMax = currentPos;
-  //    Robot.turret.setTurretPos(currentPos-500);
-  //    Scheduler.getInstance().add(new MoveTurret());
-  //   }
+  
 }
