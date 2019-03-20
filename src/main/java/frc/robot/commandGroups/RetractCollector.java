@@ -9,7 +9,7 @@ import frc.robot.commands.*;
 public class RetractCollector extends CommandGroup{
     public static int arm1RS1 = 0, arm2RS1 = 514, arm2RS2;
     public RetractCollector(){
-        addSequential(new WaitElevatorPosition(RobotMap.elevatorClearGripper, true));
+        addSequential(new WaitElevatorPosition(RobotMap.elevatorClearBallCollector, true));
         //
         addSequential(new ArmPnuematics(PnuematicArm.CLOSE));
         //

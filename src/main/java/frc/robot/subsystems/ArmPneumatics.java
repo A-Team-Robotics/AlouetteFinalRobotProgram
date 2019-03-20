@@ -1,7 +1,6 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -14,7 +13,7 @@ import frc.robot.RobotMap;
 public class ArmPneumatics extends Subsystem{
 
     private WPI_TalonSRX _rollerMotorLeft = new WPI_TalonSRX(RobotMap.ROLLER_MOTOR_LEFT);
-    private VictorSPX _rollerMotorRight = new VictorSPX(RobotMap.ROLLER_MOTOR_RIGHT);
+    private WPI_TalonSRX _rollerMotorRight = new WPI_TalonSRX(RobotMap.ROLLER_MOTOR_RIGHT);
 
     private DoubleSolenoid _armExtendor = new DoubleSolenoid(RobotMap.BALL_COLLECTOR_SOLENOID[0],RobotMap.BALL_COLLECTOR_SOLENOID[1]);
 

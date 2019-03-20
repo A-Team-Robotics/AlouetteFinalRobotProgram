@@ -1,10 +1,6 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-
-import edu.wpi.first.networktables.NetworkTable;
-import edu.wpi.first.networktables.NetworkTableEntry;
-import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.PIDSource;
@@ -12,7 +8,6 @@ import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
 import frc.robot.commands.XboxDrive;
 
@@ -22,23 +17,12 @@ public class DriveSystem extends Subsystem {
     private WPI_TalonSRX _backRightCIM = new WPI_TalonSRX(RobotMap.BACK_RIGHT_MOTOR);// Change to constant later
     private WPI_TalonSRX _frontRightCIM = new WPI_TalonSRX(RobotMap.FRONT_RIGHT_MOTOR);// Change to constant later
     private WPI_TalonSRX _backLeftCIM = new WPI_TalonSRX(RobotMap.BACK_LEFT_MOTOR);//Change to constant later
-    private WPI_TalonSRX _frontLeftCIM = new WPI_TalonSRX(RobotMap.FRONT_RIGHT_MOTOR);//Change to constant later
+    private WPI_TalonSRX _frontLeftCIM = new WPI_TalonSRX(RobotMap.FRONT_LEFT_MOTOR);//Change to constant later
 
     private SpeedControllerGroup right = new SpeedControllerGroup(_frontRightCIM,_backRightCIM);
     private SpeedControllerGroup left = new SpeedControllerGroup(_frontLeftCIM, _backLeftCIM);
     public DifferentialDrive _driveBase = new DifferentialDrive(right, left);
     
-
-    //TODO set access modifiers and clean duplicate objects in origram
-    NetworkTableEntry targetOffSet;
-    NetworkTableEntry driveInput;
-    NetworkTableInstance netTableInst = NetworkTableInstance.getDefault();
-    NetworkTable visionTable = netTableInst.getTable("videoInfo");
-    double targetOffSetNumber = 0.0;
-    double driveInputNumber = 0.0;
-    boolean driveModeLastPressed = false;
-    int dashPrintFactor = 0;
-
     public PIDController m_tracker;
 
     private static DriveSystem _driveSystemInstance = null;
@@ -53,6 +37,8 @@ public class DriveSystem extends Subsystem {
     }
 
     public void init() {
+        _backLeftCIM.setSensorPhase(true);
+        _backRightCIM.setSensorPhase(true);
         _driveBase.setSafetyEnabled(false);
     }
 
@@ -142,7 +128,7 @@ public class DriveSystem extends Subsystem {
       
             @Override
             public double pidGet() {
-              return targetOffSetNumber;
+              return 0;
             }
       
             @Override
@@ -160,14 +146,6 @@ public class DriveSystem extends Subsystem {
           m_tracker.setSetpoint(0);
           m_tracker.reset();
         }
-
-    public void trackTargetDrive(){
-        SmartDashboard.putData(m_tracker);
-        if(targetOffSet.exists()){
-            targetOffSetNumber = targetOffSet.getValue().getDouble();
-        }
-        m_tracker.enable();
-    }
 
     public int getDistance(){
         return ((-_backLeftCIM.getSelectedSensorPosition()+_backRightCIM.getSelectedSensorPosition())/2)/RobotMap.CM_CONVERSION;

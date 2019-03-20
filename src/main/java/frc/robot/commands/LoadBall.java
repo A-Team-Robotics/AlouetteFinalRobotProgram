@@ -5,7 +5,15 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
+/**
+    * Load A Ball Gripper COnfiguration
+    *Open Lower Gripper
+    *Open Upper Gripper
+    *Set gripper motor to intake
+    *Print the state of the gripper to the dashbaord
+    */
 public class LoadBall extends InstantCommand{
+
     public LoadBall(){
         requires(Robot.gripperSystem);
     }

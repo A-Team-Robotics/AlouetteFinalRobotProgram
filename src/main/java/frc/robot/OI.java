@@ -10,17 +10,11 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.buttons.POVButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.commandGroups.BallReady;
-import frc.robot.commandGroups.Climb;
-import frc.robot.commandGroups.CollectBall;
-import frc.robot.commandGroups.DeliverCargo;
-import frc.robot.commandGroups.HatchLoad;
-import frc.robot.commandGroups.HatchReady;
-import frc.robot.commandGroups.RetractCollector;
+import frc.robot.commandGroups.*;
 import frc.robot.commandGroups.DeliverCargo.side;
 import frc.robot.commands.*;
-import frc.robot.triggers.PovButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -49,25 +43,25 @@ public class OI {
   Button elevatorLevel2 = new JoystickButton(joystickController, RobotMap.elevatorLevel2);
   Button elevatorLevel3 = new JoystickButton(joystickController, RobotMap.elevatorLevel3);
   Button elevatorHumanRecieve = new JoystickButton(joystickController, RobotMap.elevatorHumanRecieve);
-  PovButton turret0 = new PovButton(joystickController, 0);
-  PovButton turret45 = new PovButton(joystickController, 45);
-  PovButton turret90 = new PovButton(joystickController, 90);
-  PovButton turret135 = new PovButton(joystickController, 135);
-  PovButton turret180 = new PovButton(joystickController, 180);
-  PovButton turret270 = new PovButton(joystickController, 270);
+  POVButton turret0 = new POVButton(joystickController, 0);
+  POVButton turret45 = new POVButton(joystickController, 45);
+  POVButton turret90 = new POVButton(joystickController, 90);
+  POVButton turret135 = new POVButton(joystickController, 135);
+  POVButton turret180 = new POVButton(joystickController, 180);
+  POVButton turret270 = new POVButton(joystickController, 270);
     
   public OI(){
-    slideBack.whenPressed(new SlideBack());
+    slideBack.whenPressed(new SlideBack());//Slide Back Until Limit
     //
-    slideFront.whenPressed(new SlideFront());
+    slideFront.whenPressed(new SlideFront());//Slide Front Unitl Limit
     //
-    slideControl.whileHeld(new SlideControl());
+    slideControl.whileHeld(new SlideControl());//Joystick Slide Control
     //
-    slideControl.whenReleased(new StopSlide());
+    slideControl.whenReleased(new StopSlide());//Stop Slide Motor
     //
-    speed.whenPressed(new SpeedControl());
+    speed.whenPressed(new SpeedControl());//Set Max Drive Speed
     //
-    recieveBall.whenPressed(new BallReady());
+    recieveBall.whenPressed(new BallReady());//Get A Ball From Human Station
     //
     recieveHatch.whenPressed(new HatchReady());
     //
@@ -99,5 +93,6 @@ public class OI {
     SmartDashboard.putData("Deliver Cargo Left", new DeliverCargo(side.LEFT));
     SmartDashboard.putData("Deliver Cargo Right", new DeliverCargo(side.RIGHT));
     SmartDashboard.putData("Seq Load Hatch", new HatchLoad());
+    SmartDashboard.putData("E-Stop", new EStop());
   }
 }

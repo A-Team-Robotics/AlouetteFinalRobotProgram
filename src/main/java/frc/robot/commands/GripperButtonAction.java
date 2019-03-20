@@ -10,10 +10,6 @@ public class GripperButtonAction extends Command {
         requires(Robot.gripperSystem);
     }
     @Override
-    protected void execute() {
-        
-    }
-    @Override
     protected boolean isFinished() {
          if(Robot.gripperSystem.getButton()==false){
             Robot._payloadState = Payload.BALL;

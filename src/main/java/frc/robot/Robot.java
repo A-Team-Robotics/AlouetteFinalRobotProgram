@@ -16,7 +16,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap.Driver;
 import frc.robot.RobotMap.Payload;
-import frc.robot.commands.MoveTurret;
 import frc.robot.subsystems.ArmPneumatics;
 import frc.robot.subsystems.BallCollectorArm2;
 import frc.robot.subsystems.BallCollectorSystem;
@@ -149,15 +148,14 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
     if(Robot.turret.getLeftLimitSwitch()==false){
-      Robot.turret.resetEncoderLeft();
-      Robot.turret.setTurretPos(200);
-      //TODO Turret set positions switch 0,45,90...
+      turret.resetEncoderLeft();
+      turret.setTurretPos(200);
       RobotMap.turretMax = 0;
       RobotMap.turretMin = 7600;
      }
      if(Robot.turret.getRightLimitSwitch()==false){
-      Robot.turret.resetEncoderRight();
-      Robot.turret.setTurretPos(200);
+      turret.resetEncoderRight();
+      turret.setTurretPos(200);
       RobotMap.turretMax = 7600;
       RobotMap.turretMin = 0;
      }
@@ -169,4 +167,14 @@ public class Robot extends TimedRobot {
   @Override
   public void testPeriodic() {
   }
+
+  public static void eStop(){
+    turret.stopMotor();
+    elevatorSystem.stopMotor();
+    slideSystem.stopMotor();
+    gripperSystem.stopMotor();
+    ballCollector.stopMotor();
+    ballCollectorArm2.stopMotor();
+  }
+  
 }

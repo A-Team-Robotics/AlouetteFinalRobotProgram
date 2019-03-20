@@ -21,7 +21,6 @@ public class SpeedControl extends InstantCommand {
     requires(Robot.drive);
   }
 
-  // Called just before this Command runs the first time
   @Override
   protected void initialize() {
     if(RobotMap.driveSpeed==1){
@@ -34,11 +33,5 @@ public class SpeedControl extends InstantCommand {
       speed = 1;
       RobotMap.driveSpeed = speed;
     }
-    
-  }
-
-  // Called repeatedly when this Command is scheduled to run
-  @Override
-  protected void execute() {
   }
 }
