@@ -9,14 +9,21 @@ public class SlideBack extends Command{
     }
     @Override
     protected void initialize() {
+    }
+
+    @Override
+    protected void execute() {
         if(!Robot.slideSystem.getReverseLimit()){
-        Robot.slideSystem.moveReverse();
+            Robot.slideSystem.moveReverse();
+        }else{
+            Robot.slideSystem.stopMotor();
         }
     }
 
     @Override
     protected boolean isFinished() {
         if(Robot.slideSystem.getReverseLimit()){
+            Robot.slideSystem.stopMotor();
             return true;
         }
         return false;

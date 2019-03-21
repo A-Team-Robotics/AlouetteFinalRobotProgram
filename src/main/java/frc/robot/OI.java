@@ -49,12 +49,9 @@ public class OI {
   Button elevatorLevel2 = new JoystickButton(joystickController, RobotMap.elevatorLevel2);
   Button elevatorLevel3 = new JoystickButton(joystickController, RobotMap.elevatorLevel3);
   Button elevatorHumanRecieve = new JoystickButton(joystickController, RobotMap.elevatorHumanRecieve);
-  PovButton turret0 = new PovButton(joystickController, 0);
-  PovButton turret45 = new PovButton(joystickController, 45);
-  PovButton turret90 = new PovButton(joystickController, 90);
-  PovButton turret135 = new PovButton(joystickController, 135);
-  PovButton turret180 = new PovButton(joystickController, 180);
-  PovButton turret270 = new PovButton(joystickController, 270);
+  public PovButton moveSlideForward = new PovButton(joystickController, 0);
+  public PovButton moveSlideBackward = new PovButton(joystickController, 180);
+  
     
   public OI(){
     slideBack.whenPressed(new SlideBack());
@@ -89,12 +86,8 @@ public class OI {
     //
     retractBallCollector.whenPressed(new RetractCollector());
     //
-    turret0.whenActive(new TurretPosition(RobotMap.turret0));
-    turret45.whenActive(new TurretPosition(RobotMap.turret45));
-    turret90.whenActive(new TurretPosition(RobotMap.turret90));
-    turret135.whenActive(new TurretPosition(RobotMap.turret135));
-    turret180.whenActive(new TurretPosition(RobotMap.turret180));
-    turret270.whenActive(new MoveTurret());
+    moveSlideForward.whenActive(new SlideMoveForward());
+    moveSlideBackward.whenActive(new SlideMoveBackward());
     //
     SmartDashboard.putData("Deliver Cargo Left", new DeliverCargo(side.LEFT));
     SmartDashboard.putData("Deliver Cargo Right", new DeliverCargo(side.RIGHT));

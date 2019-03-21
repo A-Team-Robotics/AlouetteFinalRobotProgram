@@ -156,18 +156,27 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData(Robot.drive._driveBase);
     elevatorSystem.log();
 
-    if(Robot.turret.getLeftLimitSwitch()==false){
-      int currentPos = Robot.turret.getPosition();
-      RobotMap.turretMin = currentPos;
-      RobotMap.turretMax = currentPos+7610;
-      Robot.turret.setTurretPos(RobotMap.turret0);
-     }
-     if(Robot.turret.getRightLimitSwitch()==false){
-      int currentPos = Robot.turret.getPosition();
-      RobotMap.turretMin = currentPos-7610;
-      RobotMap.turretMax = currentPos;
-      Robot.turret.setTurretPos(RobotMap.turret180);
-     }
+    //if(!Robot.turret.getLeftLimitSwitch()){
+    //  int currentPos = Robot.turret.getPosition();
+    //  RobotMap.turretMin = currentPos;
+    //  RobotMap.turretMax = currentPos+7854;
+    //  Robot.turret.setTurretPos(RobotMap.turret0);
+    // }
+    // if(!Robot.turret.getRightLimitSwitch()){
+    //  int currentPos = Robot.turret.getPosition();
+    //  RobotMap.turretMin = currentPos-7854;
+    //  RobotMap.turretMax = currentPos;
+    //  Robot.turret.setTurretPos(RobotMap.turret180);
+    // }
+
+    if(!Robot.turret.getLeftLimitSwitch()){
+      Robot.turret.setCurrentPosMin();
+     Robot.turret.setTurretPos(RobotMap.turret0);
+    }
+    if(!Robot.turret.getRightLimitSwitch()){
+      Robot.turret.setCurrentPosMax();
+     Robot.turret.setTurretPos(RobotMap.turret180);
+    }
   }
 
   /**

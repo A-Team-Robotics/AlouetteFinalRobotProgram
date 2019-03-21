@@ -52,7 +52,7 @@ public class RobotMap {
     public static final int LED_RING_ONE = 2;
 
     //Motor Speeds
-    public static double rollersSpeed = 0.4, slideSpeed = 1.0, ballGripperSpeed = 1.0;
+    public static double rollersSpeed = 0.4, slideSpeed = 0.8, ballGripperSpeed = 1.0;
     public static double driveSpeed = 1;
 
     //Encoder and Potentiometer Values System Positions
@@ -63,17 +63,17 @@ public class RobotMap {
     //Turret Encoder Limits
     public static  int turretMin = 0;
 
-    public static  int turretMax = 7610;
+    public static  int turretMax = 7854;
 
-    public static final int turret0 = turretMax + 200;
+    public static  int turret0 = turretMin + 475;
 
-    public static final int turret180 = turretMax - 200;       
+    public static  int turret180 = turretMax - 475;       
 
-    public static final int turret45 = turretMin + (turret0-turret180)/4;
+    public static  int turret45 = turretMin + (turret0-turret180)/4;
 
-    public static final int turret90 = (turret0+turret180)/2;
+    public static  int turret90 = (turret0+turret180)/2;
 
-    public static final int turret135 = turret90 + (turret0-turret180)/4;
+    public static  int turret135 = turret90 + (turret0-turret180)/4;
 
     //---------------------------------------------------------------------------------------------------------------------------//
 

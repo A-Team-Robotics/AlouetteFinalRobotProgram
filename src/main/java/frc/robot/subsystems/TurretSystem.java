@@ -40,6 +40,7 @@ public class TurretSystem extends Subsystem {
   }
 
   public void init() {
+    setCurrentPosMin();
   }
 
   /**
@@ -51,6 +52,13 @@ public class TurretSystem extends Subsystem {
  */
   public void setTurretMotor(double speed){
       _turretMotor.set(speed);
+  }
+
+  public void setCurrentPosMin(){
+    _turretMotor.setSelectedSensorPosition(RobotMap.turretMin);
+  }
+  public void setCurrentPosMax(){
+    _turretMotor.setSelectedSensorPosition(RobotMap.turretMax);
   }
 
   /**

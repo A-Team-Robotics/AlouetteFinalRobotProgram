@@ -3,27 +3,22 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class SlideFront extends Command{
-    public SlideFront(){
+public class SlideMoveBackward extends Command{
+    public SlideMoveBackward(){
         requires(Robot.slideSystem);
     }
     @Override
     protected void initialize() {
-
     }
 
     @Override
-    protected void execute() {
-        if(!Robot.slideSystem.getForwardLimit()){
-            Robot.slideSystem.moveFront();
-        }else{
-            Robot.slideSystem.stopMotor();
-        }
+    protected void execute() {        
+        Robot.slideSystem.moveReverse();
     }
 
     @Override
     protected boolean isFinished() {
-        if(Robot.slideSystem.getForwardLimit()){
+        if(!Robot.m_oi.moveSlideBackward.get()){
             Robot.slideSystem.stopMotor();
             return true;
         }

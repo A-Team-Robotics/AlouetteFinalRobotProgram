@@ -38,11 +38,20 @@ public class SlideSystem extends Subsystem {
   }
 
   public void moveFront(){
-    slideMotor.set(RobotMap.slideSpeed);
+    if (!getForwardLimit()){
+      setMotorSpeed(-RobotMap.slideSpeed);
+    } else {
+      stopMotor();
+    }    
   }
 
   public void moveReverse(){
-      slideMotor.set(-RobotMap.slideSpeed);
+    if(!getReverseLimit()){
+      setMotorSpeed(RobotMap.slideSpeed); 
+    } else {
+      stopMotor();
+    }
+    
   }
 
   public void setPID(int pos){

@@ -6,7 +6,7 @@ import frc.robot.commands.*;
 public class BallReady extends CommandGroup{
     public BallReady(){
         addParallel(new LoadBall());
-        addParallel(new SlideBack());
+        addSequential(new SlideBack());
         addSequential(new GripperButtonAction());
     }
 }
