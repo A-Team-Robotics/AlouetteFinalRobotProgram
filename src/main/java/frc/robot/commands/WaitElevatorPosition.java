@@ -31,14 +31,14 @@ public class WaitElevatorPosition extends Command{
     @Override
     protected boolean isFinished() {
         if(direction==true){
-            if(Robot.elevatorSystem.getMotorPos()>(pos-10)){
+            if(Robot.elevatorSystem.getMotorPos()>(pos-75)){
                 SmartDashboard.putString("Wait Elevator Status", "position reached");
                 return true;
             }else{
                 return false;
             }
         }else{
-            if(Robot.elevatorSystem.getMotorPos()<(pos+10)){
+            if(Robot.elevatorSystem.getMotorPos()<(pos+75)){
                 SmartDashboard.putString("Wait Elevator Status", "position reached");
                 return true;
             }else{
