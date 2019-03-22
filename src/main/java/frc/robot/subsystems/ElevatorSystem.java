@@ -1,6 +1,7 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRXConfiguration;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -10,6 +11,8 @@ import frc.robot.RobotMap;
 public class ElevatorSystem extends Subsystem{
 
     private final WPI_TalonSRX _elevatorDriveMotor = new WPI_TalonSRX(RobotMap.ELEVATOR_MOTOR);
+
+    private final TalonSRXConfiguration elevatorMotorConfig = new TalonSRXConfiguration();
 
     private static ElevatorSystem _elavatorInstance = null;
 
@@ -25,18 +28,16 @@ public class ElevatorSystem extends Subsystem{
     }
     
     public void init() {
+        elevatorMotorConfig.clearPositionOnLimitR = true;
         _elevatorDriveMotor.setSensorPhase(true);
         _elevatorDriveMotor.setSelectedSensorPosition(0);
+        _elevatorDriveMotor.configAllSettings(elevatorMotorConfig);
     }
 
     
     public void log() {
         SmartDashboard.putNumber("Elevator Encoder Position", getElevaotrPosition());
         SmartDashboard.putNumber("Talon 5 Temp", _elevatorDriveMotor.getTemperature());
-    }
-
-    public void configTest(){
-        
     }
 
     /**
