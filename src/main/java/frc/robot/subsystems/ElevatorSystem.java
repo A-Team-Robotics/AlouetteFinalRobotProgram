@@ -27,6 +27,7 @@ public class ElevatorSystem extends Subsystem{
     public void init() {
         _elevatorDriveMotor.setSensorPhase(true);
         _elevatorDriveMotor.setSelectedSensorPosition(0);
+        _elevatorDriveMotor.config_kF(0, RobotMap.elevatorFeedFGain);
     }
 
     
@@ -66,7 +67,7 @@ public class ElevatorSystem extends Subsystem{
     * @return get the current state of the limit switch. boolean true or false 
         */
         public void setMotorPos(int pos){
-            _elevatorDriveMotor.set(ControlMode.Position, pos);
+            _elevatorDriveMotor.set(ControlMode.MotionMagic, pos);
         }
     
     /**

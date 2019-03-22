@@ -19,13 +19,13 @@ public class RobotMap {
     public static final int BACK_LEFT_MOTOR = 2;
     public static final int BACK_RIGHT_MOTOR = 1;
     public static final int FRONT_LEFT_MOTOR = 4;
-    public static final int FRONT_RIGHT_MOTOR = 3;
+    public static final int FRONT_RIGHT_MOTOR = 12;
     public static final int ELEVATOR_MOTOR = 5;
     public static final int GRIPPER_MOTOR = 9;
     public static final int BALL_COLLECTOR_MOTOR_ONE = 6;
     public static final int BALL_COLLECTOR_MOTOR_TWO = 7;
     public static final int ROLLER_MOTOR_LEFT = 11;
-    public static final int ROLLER_MOTOR_RIGHT = 12;
+    public static final int ROLLER_MOTOR_RIGHT = 3;
     public static final int TURRET_SLIDE_MOTOR = 8;
     public static final int TURRET_TURN_MOTOR = 10;
     public static final int COMPRESSOR = 0;
@@ -79,7 +79,7 @@ public class RobotMap {
 
     public static final int elevatorClearGripper = 38000;
 
-    public static final int arm2RetractPosFinal = 603;
+    public static final int arm2RetractPosFinal = 615;
     
     public static final int arm2CollectPosfinal = arm2RetractPosFinal-220;
 
@@ -103,6 +103,7 @@ public class RobotMap {
     public static int elevatorError = 20;
     public static int arm1Error = 0;
     public static int arm2Error = 2;
+    public static double elevatorFeedFGain = 0.129;
     
     //Drive Controller
     public static int changeSpeed = 8, deliverPayload = 1, deployCollector = 2, retractCollector = 3, climb = 5, driveMode = 6;
