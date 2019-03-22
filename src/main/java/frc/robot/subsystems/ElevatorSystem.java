@@ -13,7 +13,7 @@ public class ElevatorSystem extends Subsystem{
 
     private final WPI_TalonSRX _elevatorDriveMotor = new WPI_TalonSRX(RobotMap.ELEVATOR_MOTOR);
 
-    private final TalonSRXConfiguration elevatorConfig = new TalonSRXConfiguration();
+    private final TalonSRXConfiguration _elevatorConfig = new TalonSRXConfiguration();
 
     private static ElevatorSystem _elavatorInstance = null;
 
@@ -29,13 +29,15 @@ public class ElevatorSystem extends Subsystem{
     }
     
     public void talonConfig(){
-        elevatorConfig.primaryPID.selectedFeedbackSensor = FeedbackDevice.QuadEncoder;
-        elevatorConfig.motionCruiseVelocity = 4663;
+        _elevatorConfig.primaryPID.selectedFeedbackSensor = FeedbackDevice.QuadEncoder;
+        _elevatorConfig.motionCruiseVelocity = RobotMap.elevatorCruiseValue;
+        _elevatorConfig.slot0.kF = RobotMap.elevatorFeedFGain;
     }
+    
     public void init() {
         _elevatorDriveMotor.setSensorPhase(true);
         _elevatorDriveMotor.setSelectedSensorPosition(0);
-        _elevatorDriveMotor.config_kF(0, RobotMap.elevatorFeedFGain);
+        _elevatorDriveMotor.configAllSettings(_elevatorConfig);
     }
 
     

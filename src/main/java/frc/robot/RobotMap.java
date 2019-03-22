@@ -104,6 +104,7 @@ public class RobotMap {
     public static int arm1Error = 0;
     public static int arm2Error = 2;
     public static double elevatorFeedFGain = 0.129;
+    public static int elevatorCruiseValue = 4663;
     
     
     //Drive Controller
