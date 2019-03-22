@@ -1,6 +1,8 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+import com.ctre.phoenix.motorcontrol.can.TalonSRXConfiguration;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -10,6 +12,8 @@ import frc.robot.RobotMap;
 public class ElevatorSystem extends Subsystem{
 
     private final WPI_TalonSRX _elevatorDriveMotor = new WPI_TalonSRX(RobotMap.ELEVATOR_MOTOR);
+
+    private final TalonSRXConfiguration elevatorConfig = new TalonSRXConfiguration();
 
     private static ElevatorSystem _elavatorInstance = null;
 
@@ -24,6 +28,10 @@ public class ElevatorSystem extends Subsystem{
         return _elavatorInstance;
     }
     
+    public void talonConfig(){
+        elevatorConfig.primaryPID.selectedFeedbackSensor = FeedbackDevice.QuadEncoder;
+        elevatorConfig.motionCruiseVelocity = 4663;
+    }
     public void init() {
         _elevatorDriveMotor.setSensorPhase(true);
         _elevatorDriveMotor.setSelectedSensorPosition(0);
