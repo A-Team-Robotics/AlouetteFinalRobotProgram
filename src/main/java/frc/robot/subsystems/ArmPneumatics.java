@@ -14,7 +14,7 @@ import frc.robot.RobotMap;
 public class ArmPneumatics extends Subsystem{
 
     private WPI_TalonSRX _rollerMotorLeft = new WPI_TalonSRX(RobotMap.ROLLER_MOTOR_LEFT);
-    private VictorSPX _rollerMotorRight = new VictorSPX(RobotMap.ROLLER_MOTOR_RIGHT);
+    private WPI_TalonSRX _rollerMotorRight = new WPI_TalonSRX(RobotMap.ROLLER_MOTOR_RIGHT);
 
     private DoubleSolenoid _armExtendor = new DoubleSolenoid(RobotMap.BALL_COLLECTOR_SOLENOID[0],RobotMap.BALL_COLLECTOR_SOLENOID[1]);
 
@@ -41,18 +41,18 @@ public class ArmPneumatics extends Subsystem{
         SmartDashboard.putBoolean("Arm Button", getBallStopButton());
     }
 
-    public void setRollersForward(){
+    public void setMotorForward(){
         _rollerMotorLeft.set(RobotMap.rollersSpeed);
         _rollerMotorRight.set(ControlMode.PercentOutput, -RobotMap.rollersSpeed);
     }
 
-    public void stopRollers(){
+    public void stopMotor(){
         _rollerMotorLeft.stopMotor();
         _rollerMotorRight.set(ControlMode.PercentOutput, 0);
 
     }
 
-    public void setRollersReverse(){
+    public void setMotorReverse(){
         _rollerMotorLeft.set(-RobotMap.rollersSpeed);
         _rollerMotorRight.set(ControlMode.PercentOutput, RobotMap.rollersSpeed);
     }
@@ -63,6 +63,11 @@ public class ArmPneumatics extends Subsystem{
 
     public void closeArms(){
         _armExtendor.set(Value.kReverse);
+    }
+
+    public void disablesystem(){
+        stopMotor();
+        _armExtendor.set(Value.kOff);
     }
 
     @Override

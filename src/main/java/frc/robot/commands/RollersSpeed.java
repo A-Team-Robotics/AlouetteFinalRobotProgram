@@ -30,13 +30,14 @@ public class RollersSpeed extends InstantCommand {
   protected void initialize() {
       switch(state){
           case STOP:
-          Robot.arm.stopRollers();
+          Robot.arm.stopMotor();
           break;
           case FORWARD:
-          Robot.arm.setRollersReverse();
+          Robot.arm.setMotorForward();
           break;
           case REVERSE:
-          Robot.arm.setRollersForward();
+          Robot.arm.setMotorReverse();
+          
           break;
       }
   }

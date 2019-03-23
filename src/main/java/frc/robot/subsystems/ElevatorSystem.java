@@ -32,9 +32,16 @@ public class ElevatorSystem extends Subsystem{
         _elevatorConfig.primaryPID.selectedFeedbackSensor = FeedbackDevice.QuadEncoder;
         _elevatorConfig.motionCruiseVelocity = RobotMap.elevatorCruiseValue;
         _elevatorConfig.slot0.kF = RobotMap.elevatorFeedFGain;
+        _elevatorConfig.slot0.kP = RobotMap.elevatorFeedPGain;
+        _elevatorConfig.slot0.kI = RobotMap.elevatorFeedIGain;
+        _elevatorConfig.slot0.kD = RobotMap.elevatorFeedDGain;
+        _elevatorConfig.peakOutputReverse = 0.1;
+        _elevatorConfig.peakOutputForward = 1.0;
+
     }
     
     public void init() {
+        talonConfig();
         _elevatorDriveMotor.setSensorPhase(true);
         _elevatorDriveMotor.setSelectedSensorPosition(0);
         _elevatorDriveMotor.configAllSettings(_elevatorConfig);
@@ -77,7 +84,8 @@ public class ElevatorSystem extends Subsystem{
     * @return get the current state of the limit switch. boolean true or false 
         */
         public void setMotorPos(int pos){
-            _elevatorDriveMotor.set(ControlMode.MotionMagic, pos);
+            System.out.println("Setting pos2 " + pos);
+            _elevatorDriveMotor.set(ControlMode.Position, pos);
         }
     
     /**

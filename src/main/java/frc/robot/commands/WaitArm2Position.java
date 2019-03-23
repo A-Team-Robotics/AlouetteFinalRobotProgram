@@ -22,11 +22,12 @@ public class WaitArm2Position extends Command{
             this.direction = true;
         }
         SmartDashboard.putString("Wait Arm2 Status", "Trying to reach position");
+        Robot.ballCollectorArm2.setMotorPos(pos);  
     }
 
     @Override
     protected void execute() {
-        Robot.ballCollectorArm2.setMotorPos(pos);        
+             
     }
 
     @Override

@@ -11,7 +11,7 @@ public class LoadBall extends InstantCommand{
     }
 
     @Override
-    protected void execute() {
+    protected void initialize() {
         Robot.gripperSystem.openLowerGripper();
         Robot.gripperSystem.openUpperGripper();
         Robot.gripperSystem.setMotorSpeed(-RobotMap.ballGripperSpeed);

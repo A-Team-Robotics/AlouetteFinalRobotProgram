@@ -1,6 +1,7 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
@@ -20,14 +21,13 @@ public class DriveSystem extends Subsystem {
     
 
     private WPI_TalonSRX _backRightCIM = new WPI_TalonSRX(RobotMap.BACK_RIGHT_MOTOR);// Change to constant later
-    private WPI_TalonSRX _frontRightCIM = new WPI_TalonSRX(RobotMap.FRONT_RIGHT_MOTOR);// Change to constant later
+    private WPI_VictorSPX _frontRightCIM = new WPI_VictorSPX(RobotMap.FRONT_RIGHT_MOTOR);// Change to constant later
     private WPI_TalonSRX _backLeftCIM = new WPI_TalonSRX(RobotMap.BACK_LEFT_MOTOR);//Change to constant later
-    private WPI_TalonSRX _frontLeftCIM = new WPI_TalonSRX(RobotMap.FRONT_RIGHT_MOTOR);//Change to constant later
+    private WPI_TalonSRX _frontLeftCIM = new WPI_TalonSRX(RobotMap.FRONT_LEFT_MOTOR);//Change to constant later
 
     private SpeedControllerGroup right = new SpeedControllerGroup(_frontRightCIM,_backRightCIM);
     private SpeedControllerGroup left = new SpeedControllerGroup(_frontLeftCIM, _backLeftCIM);
     public DifferentialDrive _driveBase = new DifferentialDrive(right, left);
-    
 
     //TODO set access modifiers and clean duplicate objects in origram
     NetworkTableEntry targetOffSet;
@@ -70,6 +70,10 @@ public class DriveSystem extends Subsystem {
    *
    * @param driveController joystick controller object to get axis value from
    */
+  //  public void arcadeDrive(Joystick driveController){
+     //   _driveBase.arcadeDrive((driveController.getRawAxis(1))/RobotMap.driveSpeed, (driveController.getRawAxis(4))/RobotMap.driveSpeed, true);
+   // }
+
     public void arcadeDrive(Joystick driveController){
         _driveBase.arcadeDrive((driveController.getRawAxis(1))/RobotMap.driveSpeed, (driveController.getRawAxis(4))/RobotMap.driveSpeed, true);
     }
@@ -122,18 +126,18 @@ public class DriveSystem extends Subsystem {
             while(distance < ((_backLeftCIM.getSelectedSensorPosition()+_backRightCIM.getSelectedSensorPosition())/2)){
                 _driveBase.tankDrive(0.6, 0.6);
             }
-        }else{
+       }else{
             while(distance < ((_backLeftCIM.getSelectedSensorPosition()+_backRightCIM.getSelectedSensorPosition())/2)){
-                _driveBase.tankDrive(-0.6, -0.6);
-            }
-        }
+              _driveBase.tankDrive(-0.6, -0.6);
+         }
+    }
         
         return true;
     }
 
     int lastPrinted = 0;
     public int getTemperature(){
-        return (int)(_backLeftCIM.getTemperature()+_backRightCIM.getTemperature()+_frontLeftCIM.getTemperature()+_frontRightCIM.getTemperature())/4;
+       return (int)(_backLeftCIM.getTemperature()+_backRightCIM.getTemperature()+_frontLeftCIM.getTemperature()+_frontRightCIM.getTemperature())/4;
     }
 
     public void inittrackTargetDrive(){
@@ -170,7 +174,7 @@ public class DriveSystem extends Subsystem {
     }
 
     public int getDistance(){
-        return ((-_backLeftCIM.getSelectedSensorPosition()+_backRightCIM.getSelectedSensorPosition())/2)/RobotMap.CM_CONVERSION;
+      return ((-_backLeftCIM.getSelectedSensorPosition()+_backRightCIM.getSelectedSensorPosition())/2)/RobotMap.CM_CONVERSION;
     }
 
     @Override

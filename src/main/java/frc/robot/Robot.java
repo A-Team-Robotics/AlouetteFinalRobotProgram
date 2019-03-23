@@ -107,6 +107,7 @@ public class Robot extends TimedRobot {
     gripperSystem.stopMotor();
     ballCollectorArm1.stopMotor();
     ballCollectorArm2.stopMotor();
+    arm.disablesystem();
   }
 
   @Override

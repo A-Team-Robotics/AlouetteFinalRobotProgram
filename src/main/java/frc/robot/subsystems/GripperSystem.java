@@ -63,4 +63,9 @@ public class GripperSystem extends Subsystem {
   public void closelowerGripper(){
     lowerGripper.set(Value.kForward);
   }
+
+  public void releasePressure(){
+    upperGripper.set(Value.kOff);
+  }
+
 }

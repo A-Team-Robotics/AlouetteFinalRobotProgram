@@ -22,7 +22,7 @@ public class PovButton extends Trigger {
    * Create a new double button trigger.
    * @param joy The joystick
    * @param button1 The first button
-   * @param button2 The second button
+   * @param check The point 
    */
   public PovButton(Joystick joy,int check) {
     this.m_joy = joy;

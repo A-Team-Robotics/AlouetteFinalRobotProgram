@@ -14,7 +14,6 @@ public class SlideBack extends Command{
     @Override
     protected void execute() {
         if(!Robot.slideSystem.getReverseLimit()){
-            System.out.println("MovingSlideBack");
             Robot.slideSystem.moveReverse();
         }else{
             Robot.slideSystem.stopMotor();
@@ -24,6 +23,7 @@ public class SlideBack extends Command{
     @Override
     protected boolean isFinished() {
         if(Robot.slideSystem.getReverseLimit()){
+            System.out.println("Finished Sliding Back.");
             Robot.slideSystem.stopMotor();
             return true;
         }
