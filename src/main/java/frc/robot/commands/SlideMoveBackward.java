@@ -18,11 +18,12 @@ public class SlideMoveBackward extends Command{
 
     @Override
     protected boolean isFinished() {
-        if(!Robot.m_oi.moveSlideBackward.get()){
-            Robot.slideSystem.stopMotor();
-            return true;
-        }
+        // if(!Robot.m_oi.moveSlideBackward.get()){
+        //     Robot.slideSystem.stopMotor();
+        //     return true;
+        // }
         return false;
+        //TODO uncomment this
     }
 
     @Override

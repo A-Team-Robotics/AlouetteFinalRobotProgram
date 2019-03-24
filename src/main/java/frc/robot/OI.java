@@ -17,8 +17,9 @@ import frc.robot.commandGroups.CollectBall;
 import frc.robot.commandGroups.DeliverCargo;
 import frc.robot.commandGroups.HatchLoad;
 import frc.robot.commandGroups.HatchReady;
+import frc.robot.commandGroups.Home;
 import frc.robot.commandGroups.RetractCollector;
-import frc.robot.commandGroups.DeliverCargo.side;
+import frc.robot.commandGroups.DeliverCargo.Side;
 import frc.robot.commands.*;
 import frc.robot.triggers.PovButton;
 
@@ -49,8 +50,16 @@ public class OI {
   Button elevatorLevel2 = new JoystickButton(joystickController, RobotMap.elevatorLevel2);
   Button elevatorLevel3 = new JoystickButton(joystickController, RobotMap.elevatorLevel3);
   Button elevatorHumanRecieve = new JoystickButton(joystickController, RobotMap.elevatorHumanRecieve);
-  public PovButton moveSlideForward = new PovButton(joystickController, 0);
-  public PovButton moveSlideBackward = new PovButton(joystickController, 180);
+  Button moveSlide = new JoystickButton(joystickController, 1);
+  // public PovButton moveSlideForward = new PovButton(joystickController, 0);
+  // public PovButton moveSlideBackward = new PovButton(joystickController, 180);
+  PovButton turretCenter = new PovButton(joystickController, 0);
+  PovButton turretLeft = new PovButton(joystickController, 270);
+  PovButton turretRight = new PovButton(joystickController, 90);
+  PovButton turret45left = new PovButton(joystickController, 315);
+  PovButton turret45Right = new PovButton(joystickController, 45);
+  PovButton turretManualRight = new PovButton(joystickController, 135);
+  PovButton turretManualLeft = new PovButton(joystickController, 225);
   
     
   public OI(){
@@ -86,11 +95,22 @@ public class OI {
     //
     retractBallCollector.whenPressed(new RetractCollector());
     //
-    moveSlideForward.whenActive(new SlideMoveForward());
-    moveSlideBackward.whenActive(new SlideMoveBackward());
+    moveSlide.whileHeld(new SlideControl());
+    moveSlide.whenReleased(new StopSlide());
+    // moveSlideForward.whenActive(new SlideMoveForward());
+    // moveSlideBackward.whenActive(new SlideMoveBackward());
     //
-    SmartDashboard.putData("Deliver Cargo Left", new DeliverCargo(side.LEFT));
-    SmartDashboard.putData("Deliver Cargo Right", new DeliverCargo(side.RIGHT));
+    turretCenter.whenActive(new TurretPosition(RobotMap.turret90));
+    turretLeft.whenActive(new TurretPosition(RobotMap.turret0));
+    turretRight.whenActive(new TurretPosition(RobotMap.turret180));
+    turret45left.whenActive(new TurretPosition(RobotMap.turret45));
+    turret45Right.whenActive(new TurretPosition(RobotMap.turret135));
+    turretManualRight.whileActive(new MoveTurret());
+    turretManualRight.whileActive(new MoveTurret());
+
+    SmartDashboard.putData("Deliver Cargo Left", new DeliverCargo(Side.LEFT));
+    SmartDashboard.putData("Deliver Cargo Right", new DeliverCargo(Side.RIGHT));
     SmartDashboard.putData("Seq Load Hatch", new HatchLoad());
+    SmartDashboard.putData(new Home());
   }
 }

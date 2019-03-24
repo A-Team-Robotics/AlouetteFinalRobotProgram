@@ -69,11 +69,11 @@ public class RobotMap {
 
     public static  int turret180 = turretMax - 475;       
 
-    public static  int turret45 = turretMin + (turret0-turret180)/4;
+    public static  int turret45 = turretMin + (turret0+turret180)/4;
 
     public static  int turret90 = (turret0+turret180)/2;
 
-    public static  int turret135 = turret90 + (turret0-turret180)/4;
+    public static  int turret135 = turret90 + (turret0+turret180)/4;
 
     //---------------------------------------------------------------------------------------------------------------------------//
 

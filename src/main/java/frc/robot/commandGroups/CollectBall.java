@@ -1,10 +1,6 @@
 package frc.robot.commandGroups;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import frc.robot.RobotMap;
-import frc.robot.RobotMap.PnuematicArm;
-import frc.robot.RobotMap.RollerSpeed;
-import frc.robot.commands.*;
 
 public class CollectBall extends CommandGroup{
     public CollectBall(){

@@ -14,7 +14,6 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
-import frc.robot.commands.MoveTurret;
 
 /**
  * An example subsystem.  You can replace me with your own Subsystem.
@@ -30,7 +29,7 @@ public class TurretSystem extends Subsystem {
   
   @Override
   public void initDefaultCommand() {
-     setDefaultCommand(new MoveTurret());
+     setDefaultCommand(null);
   }
 
   public void log() {

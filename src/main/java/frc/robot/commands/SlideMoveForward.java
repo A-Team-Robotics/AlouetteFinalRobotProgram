@@ -19,10 +19,11 @@ public class SlideMoveForward extends Command{
 
     @Override
     protected boolean isFinished() {
-        if(!Robot.m_oi.moveSlideForward.get()){
-            Robot.slideSystem.stopMotor();
-            return true;
-        }
+        // if(!Robot.m_oi.moveSlideForward.get()){
+        //     Robot.slideSystem.stopMotor();
+        //     return true;
+        // }
+        //TODO uncomment this
         return false;
     }
 

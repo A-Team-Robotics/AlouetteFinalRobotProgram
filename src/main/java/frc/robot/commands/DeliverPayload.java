@@ -21,7 +21,7 @@ public class DeliverPayload extends InstantCommand{
             SmartDashboard.putBoolean("Lower Gripper", false);
               break;
             case HATCH:
-            Robot.gripperSystem.closeUpperGripper();
+            Robot.gripperSystem.openUpperGripper();
             Robot.gripperSystem.openLowerGripper();
             Robot.gripperSystem.stopMotor();
             SmartDashboard.putBoolean("Upper Gripper", false);

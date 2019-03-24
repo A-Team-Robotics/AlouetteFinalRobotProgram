@@ -7,11 +7,11 @@ import frc.robot.commands.TurretPosition;
 import frc.robot.commands.WaitElevatorPosition;
 
 public class DeliverCargo extends CommandGroup {
-    public enum side{
+    public enum Side{
         LEFT,
         RIGHT
     }
-    public DeliverCargo(side s) {
+    public DeliverCargo(Side s) {
         switch(s){
             case LEFT:
             addSequential(new WaitElevatorPosition(RobotMap.elevatorCargoLevel));
