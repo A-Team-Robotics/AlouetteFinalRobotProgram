@@ -30,7 +30,6 @@ public class ElevatorSystem extends Subsystem{
     
     public void talonConfig(){
         _elevatorConfig.primaryPID.selectedFeedbackSensor = FeedbackDevice.QuadEncoder;
-        _elevatorConfig.motionCruiseVelocity = RobotMap.elevatorCruiseValue;
         _elevatorConfig.slot0.kF = RobotMap.elevatorFeedFGain;
         _elevatorConfig.slot0.kP = RobotMap.elevatorFeedPGain;
         _elevatorConfig.slot0.kI = RobotMap.elevatorFeedIGain;

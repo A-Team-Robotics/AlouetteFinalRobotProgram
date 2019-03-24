@@ -1,5 +1,6 @@
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.Faults;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
@@ -53,8 +54,8 @@ public class DriveSystem extends Subsystem {
     }
 
     public void init() {
-        _backRightCIM.setSensorPhase(true);
-        _backLeftCIM.setSensorPhase(true);
+        //_backRightCIM.setSensorPhase(true);
+        //_backLeftCIM.setSensorPhase(true);
         _driveBase.setSafetyEnabled(false);
     }
 
@@ -64,6 +65,11 @@ public class DriveSystem extends Subsystem {
         }
         return _driveSystemInstance;
     }
+
+   // public String GetLeftMotorFaults(){
+        //faults test = new Faults();
+        //return _backLeftCIM.getStickyFaults(test);
+    //}
 
      /**
    * Drive the Robot using arcade drive

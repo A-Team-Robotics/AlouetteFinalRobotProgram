@@ -100,7 +100,7 @@ public class RobotMap {
     public static int arm2Error = 2;
 
     //Elevator Stuff
-    public static double elevatorFeedFGain = 0;
+    public static double elevatorFeedFGain = 0;//0.2224;
     public static double elevatorFeedPGain = 16;
     public static double elevatorFeedIGain = 0;
     public static double elevatorFeedDGain = 80;
