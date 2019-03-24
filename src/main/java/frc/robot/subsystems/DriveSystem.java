@@ -53,6 +53,8 @@ public class DriveSystem extends Subsystem {
     }
 
     public void init() {
+        _backRightCIM.setSensorPhase(true);
+        _backLeftCIM.setSensorPhase(true);
         _driveBase.setSafetyEnabled(false);
     }
 

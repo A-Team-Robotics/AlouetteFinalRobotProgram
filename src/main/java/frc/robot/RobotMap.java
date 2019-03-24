@@ -57,7 +57,7 @@ public class RobotMap {
 
     //Encoder and Potentiometer Values System Positions
     public static int elevatorPos1 = 0, elevatorHumanLoad = 34711,
-    elevatorPos2 = 41948, elevatorPos3 = 90000, elevatorHatchLevel = 2500, elevatorCargoLevel = 49000,elevatorRecieveBall=36300,elevatorRecieveHatch = 2500;
+    elevatorPos2 = 41948, elevatorPos3 = 90000, elevatorHatchLevel = 2500, elevatorCargoLevel = 50000,elevatorRecieveBall=38300,elevatorRecieveHatch = 2500;
     
 
     //Turret Encoder Limits
