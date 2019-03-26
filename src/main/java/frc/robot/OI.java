@@ -112,5 +112,6 @@ public class OI {
     SmartDashboard.putData("Deliver Cargo Right", new DeliverCargo(Side.RIGHT));
     SmartDashboard.putData("Seq Load Hatch", new HatchLoad());
     SmartDashboard.putData(new Home());
+    SmartDashboard.putBoolean("Turret Control", false);
   }
 }

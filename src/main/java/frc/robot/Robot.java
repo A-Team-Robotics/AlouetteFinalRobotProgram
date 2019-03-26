@@ -154,9 +154,8 @@ public class Robot extends TimedRobot {
     ballCollectorArm1.log();
     ballCollectorArm2.log();
     turret.log();
-    SmartDashboard.putData(Robot.drive._driveBase);
     elevatorSystem.log();
-
+    SmartDashboard.getBoolean("Turret Control", false);
     //if(!Robot.turret.getLeftLimitSwitch()){
     //  int currentPos = Robot.turret.getPosition();
     //  RobotMap.turretMin = currentPos;
