@@ -100,13 +100,13 @@ public class OI {
     // moveSlideForward.whenActive(new SlideMoveForward());
     // moveSlideBackward.whenActive(new SlideMoveBackward());
     //
-    turretCenter.whenActive(new TurretPosition(RobotMap.turret90));
-    turretLeft.whenActive(new TurretPosition(RobotMap.turret0));
-    turretRight.whenActive(new TurretPosition(RobotMap.turret180));
-    turret45left.whenActive(new TurretPosition(RobotMap.turret45));
-    turret45Right.whenActive(new TurretPosition(RobotMap.turret135));
-    turretManualRight.whileActive(new MoveTurret());
-    turretManualRight.whileActive(new MoveTurret());
+    //turretCenter.whenActive(new TurretPosition(RobotMap.turret90));
+    //turretLeft.whenActive(new TurretPosition(RobotMap.turret0));
+    //turretRight.whenActive(new TurretPosition(RobotMap.turret180));
+    //turret45left.whenActive(new TurretPosition(RobotMap.turret45));
+    //turret45Right.whenActive(new TurretPosition(RobotMap.turret135));
+    //turretManualRight.whileActive(new MoveTurret());
+    //turretManualLeft.whileActive(new MoveTurret());
 
     SmartDashboard.putData("Deliver Cargo Left", new DeliverCargo(Side.LEFT));
     SmartDashboard.putData("Deliver Cargo Right", new DeliverCargo(Side.RIGHT));

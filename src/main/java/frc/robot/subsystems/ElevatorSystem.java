@@ -40,10 +40,10 @@ public class ElevatorSystem extends Subsystem{
     }
     
     public void init() {
-        talonConfig();
+       // talonConfig();
         _elevatorDriveMotor.setSensorPhase(true);
         _elevatorDriveMotor.setSelectedSensorPosition(0);
-        _elevatorDriveMotor.configAllSettings(_elevatorConfig);
+       // _elevatorDriveMotor.configAllSettings(_elevatorConfig);
     }
 
     
