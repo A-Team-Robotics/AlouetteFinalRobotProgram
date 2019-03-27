@@ -1,28 +1,29 @@
 package frc.robot.commandGroups;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import frc.robot.commands.*;
+import frc.robot.*;
 
 public class CollectBall extends CommandGroup{
     public CollectBall(){
-       //addSequential(new WaitElevatorPosition(RobotMap.elevatorClearGripper));
+       //addSequential(new WaitElevatorPosition(RobotMap.elevatorPos2));
        //       
-      // addParallel(new SlideBack());
+       //addParallel(new SlideBack());
        //
        //addSequential(new WaitArm2Position(RobotMap.arm2DS1));
        //
        //addSequential(new RollersSpeed(RollerSpeed.FORWARD));
        //
-      // addSequential(new ArmPnuematics(PnuematicArm.OPEN));
+       //addSequential(new ArmPnuematics(PnuematicArm.OPEN));
        //
-//addSequential(new MultiArm(RobotMap.arm1DS1,RobotMap.arm2SD2));
-       /*
-       addSequential(new WaitElevatorPosition(RobotMap.elevatorPos1));
+       //addSequential(new MultiArm(RobotMap.arm1DS1,RobotMap.arm2SD2));
        //
-       addParallel(new LoadBall());
+       //addSequential(new WaitElevatorPosition(RobotMap.elevatorPos1));
        //
-       addSequential(new CollectorButtonAction());
+       //addParallel(new LoadBall());
        //
-       addSequential(new TransferBall());
-       */
+       //addSequential(new CollectorButtonAction());
+       //
+       //addSequential(new TransferBall());
     }
 }

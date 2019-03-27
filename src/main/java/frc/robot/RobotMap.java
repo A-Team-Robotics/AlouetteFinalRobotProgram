@@ -57,17 +57,17 @@ public class RobotMap {
 
     //Encoder and Potentiometer Values System Positions
     public static int elevatorPos1 = 0, elevatorHumanLoad = 34711,
-    elevatorPos2 = 41948, elevatorPos3 = 90000, elevatorHatchLevel = 2500, elevatorCargoLevel = 50000,elevatorRecieveBall=38300,elevatorRecieveHatch = 2500;
+    elevatorPos2 = 41948, elevatorPos3 = 90000, elevatorHatchLevel = 2500, elevatorCargoLevel = 50000,elevatorRecieveBall=34000,elevatorRecieveHatch = 1130;
     
 
     //Turret Encoder Limits
     public static  int turretMin = 0;
 
-    public static  int turretMax = 7854;
+    public static  int turretMax = 7639;
 
-    public static  int turret0 = turretMin + 475;
+    public static  int turret0 = turretMin + 400;
 
-    public static  int turret180 = turretMax - 475;       
+    public static  int turret180 = turretMax - 400;       
 
     public static  int turret45 = turretMin + (turret0+turret180)/4;
 
@@ -79,7 +79,7 @@ public class RobotMap {
 
     //FYI d means deploy t means transfer c means collect and s means step
 
-    public static int arm2Max = 615, arm2Min=208, arm1Max= 60000, arm1Min = 0;
+    public static int arm2Max = 653, arm2Min=208, arm1Max= 60000, arm1Min = 0;
 
     //BallCollector Deploy Positions 
 
