@@ -2,7 +2,6 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.Faults;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
@@ -22,7 +21,7 @@ public class DriveSystem extends Subsystem {
     
 
     private WPI_TalonSRX _backRightCIM = new WPI_TalonSRX(RobotMap.BACK_RIGHT_MOTOR);// Change to constant later
-    private WPI_VictorSPX _frontRightCIM = new WPI_VictorSPX(RobotMap.FRONT_RIGHT_MOTOR);// Change to constant later
+    private WPI_TalonSRX _frontRightCIM = new WPI_TalonSRX(RobotMap.FRONT_RIGHT_MOTOR);// Change to constant later
     private WPI_TalonSRX _backLeftCIM = new WPI_TalonSRX(RobotMap.BACK_LEFT_MOTOR);//Change to constant later
     private WPI_TalonSRX _frontLeftCIM = new WPI_TalonSRX(RobotMap.FRONT_LEFT_MOTOR);//Change to constant later
 

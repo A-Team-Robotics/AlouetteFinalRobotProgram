@@ -15,6 +15,7 @@ public class BallCollectorArm2 extends Subsystem {
     private WPI_TalonSRX _armTwoMotor = new WPI_TalonSRX(RobotMap.BALL_COLLECTOR_MOTOR_TWO);
 
     public void init(){
+        _armTwoMotor.enableVoltageCompensation(true);
        _armTwoMotor.setInverted(true);
        _armTwoMotor.setSensorPhase(true);
     }

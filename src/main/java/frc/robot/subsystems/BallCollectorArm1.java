@@ -25,6 +25,7 @@ public class BallCollectorArm1 extends Subsystem{
 
     
     public void init() {
+        _armOneMotor.enableVoltageCompensation(true);
         _armOneMotor.setInverted(true);
     }
 

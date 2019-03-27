@@ -41,6 +41,7 @@ public class ElevatorSystem extends Subsystem{
     
     public void init() {
        // talonConfig();
+       _elevatorDriveMotor.enableVoltageCompensation(true);
         _elevatorDriveMotor.setSensorPhase(true);
         _elevatorDriveMotor.setSelectedSensorPosition(0);
        // _elevatorDriveMotor.configAllSettings(_elevatorConfig);
