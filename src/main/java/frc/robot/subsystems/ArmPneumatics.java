@@ -42,7 +42,7 @@ public class ArmPneumatics extends Subsystem{
 
     public void setMotorForward(){
         _rollerMotorLeft.set(RobotMap.rollersSpeed);
-        _rollerMotorRight.set(ControlMode.PercentOutput, -RobotMap.rollersSpeed);
+        _rollerMotorRight.set(-RobotMap.rollersSpeed);
     }
 
     public void stopMotor(){

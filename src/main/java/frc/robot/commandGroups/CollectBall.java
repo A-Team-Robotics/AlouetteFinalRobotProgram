@@ -23,8 +23,9 @@ public class CollectBall extends CommandGroup{
        addSequential(new ArmPnuematics(PnuematicArm.OPEN));
        //
        addSequential(new MultiArm(RobotMap.arm1DS1,RobotMap.arm2SD2));
-       /*
+       //
        addSequential(new WaitElevatorPosition(RobotMap.elevatorPos1));
+       /*
        //
        addParallel(new LoadBall());
        //
