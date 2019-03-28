@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commandGroups.BallReady;
 import frc.robot.commandGroups.Climb;
+import frc.robot.commandGroups.ClimbStep2;
 import frc.robot.commandGroups.CollectBall;
 import frc.robot.commandGroups.DeliverCargo;
 import frc.robot.commandGroups.HatchLoad;
@@ -37,6 +38,7 @@ public class OI {
   Button deployBallCollector = new JoystickButton(xboxController, RobotMap.deployCollector);
   Button retractBallCollector = new JoystickButton(xboxController, RobotMap.retractCollector);
   Button climb = new JoystickButton(xboxController, RobotMap.climb);
+  Button climb2 = new JoystickButton(xboxController, RobotMap.climb);
   Button driveMode = new JoystickButton(xboxController, RobotMap.driveMode);
 
   //Joystick Controller
@@ -82,6 +84,8 @@ public class OI {
     deliverPayload.whenPressed(new DeliverPayload());
     //
     climb.whenPressed(new Climb());
+    //
+    climb2.whenPressed(new ClimbStep2());
     //
     elevatorBase.whenPressed(new ElevatorPosition(RobotMap.elevatorPos1));
     //

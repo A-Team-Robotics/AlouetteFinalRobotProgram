@@ -108,7 +108,7 @@ public class RobotMap {
     
     
     //Drive Controller
-    public static int changeSpeed = 8, deliverPayload = 1, deployCollector = 2, retractCollector = 3, climb = 5, driveMode = 6;
+    public static int changeSpeed = 8, deliverPayload = 1, deployCollector = 2, retractCollector = 3, climb = 5, climb2 = 6, driveMode = 9;
     //Joystick Controller 
     public static int closeGripper = 2, recieveBall = 3, recieveHatch = 4, elevatorLevel1 = 11, elevatorLevel2 = 9, elevatorLevel3 = 7,
     elevatorHumanRecieve = 10, slideFront = 6, slideBack = 5, slideControl = 7;
