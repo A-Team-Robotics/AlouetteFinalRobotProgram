@@ -29,9 +29,10 @@ public class WaitArm1Position extends Command{
     protected void execute() {
         
     }
+
     @Override
     protected boolean isFinished() {
-        if(direction==true){
+        if(direction==false){
             if(Robot.ballCollectorArm1.getMotorPos()>(pos-10)){
                 return true;
             }else{
